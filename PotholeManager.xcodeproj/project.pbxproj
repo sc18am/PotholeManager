@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2ED4736D408E85357192E232 /* Pods_PotholeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */; };
+		9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E22847D28900F95F9D /* AppDelegate.swift */; };
+		9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E42847D28900F95F9D /* SceneDelegate.swift */; };
+		9829B9E72847D28900F95F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
+		9829B9EA2847D28900F95F9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9E82847D28900F95F9D /* Main.storyboard */; };
+		9829B9EC2847D28C00F95F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9EB2847D28C00F95F9D /* Assets.xcassets */; };
+		9829B9EF2847D28C00F95F9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9ED2847D28C00F95F9D /* LaunchScreen.storyboard */; };
+		9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F62847D2F500F95F9D /* SignUpViewController.swift */; };
+		9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
+		9829B9FB2847D32400F95F9D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* HomeViewController.swift */; };
+		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
+		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotholeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.debug.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.debug.xcconfig"; sourceTree = "<group>"; };
+		9829B9DF2847D28900F95F9D /* PotholeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotholeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9829B9E22847D28900F95F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9829B9E42847D28900F95F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9829B9E62847D28900F95F9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9829B9E92847D28900F95F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9829B9EB2847D28C00F95F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9829B9EE2847D28C00F95F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9829B9F02847D28C00F95F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9829B9F62847D2F500F95F9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9829B9F82847D31500F95F9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9829B9FA2847D32400F95F9D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.release.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9829B9DC2847D28900F95F9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ED4736D408E85357192E232 /* Pods_PotholeManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88B151B8A776648EEB5EDCF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9829B9D62847D28900F95F9D = {
+			isa = PBXGroup;
+			children = (
+				9829B9E12847D28900F95F9D /* PotholeManager */,
+				9829B9E02847D28900F95F9D /* Products */,
+				BC2959BB993FB0C04F9298DF /* Pods */,
+				88B151B8A776648EEB5EDCF3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9829B9E02847D28900F95F9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9829B9DF2847D28900F95F9D /* PotholeManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9829B9E12847D28900F95F9D /* PotholeManager */ = {
+			isa = PBXGroup;
+			children = (
+				9829B9E22847D28900F95F9D /* AppDelegate.swift */,
+				9829B9E42847D28900F95F9D /* SceneDelegate.swift */,
+				98E9300E284CF2C000D80682 /* Helpers */,
+				9829B9FC2847D33200F95F9D /* ViewControllers */,
+				9829B9E82847D28900F95F9D /* Main.storyboard */,
+				9829B9EB2847D28C00F95F9D /* Assets.xcassets */,
+				9829B9ED2847D28C00F95F9D /* LaunchScreen.storyboard */,
+				9829B9F02847D28C00F95F9D /* Info.plist */,
+				9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */,
+			);
+			path = PotholeManager;
+			sourceTree = "<group>";
+		};
+		9829B9FC2847D33200F95F9D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9829B9F62847D2F500F95F9D /* SignUpViewController.swift */,
+				9829B9F82847D31500F95F9D /* LoginViewController.swift */,
+				9829B9FA2847D32400F95F9D /* HomeViewController.swift */,
+				9829B9E62847D28900F95F9D /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		98E9300E284CF2C000D80682 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98E9300F284CF2E200D80682 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BC2959BB993FB0C04F9298DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */,
+				BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9829B9DE2847D28900F95F9D /* PotholeManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9829B9F32847D28C00F95F9D /* Build configuration list for PBXNativeTarget "PotholeManager" */;
+			buildPhases = (
+				9F103BD03F533DFC7C1111CF /* [CP] Check Pods Manifest.lock */,
+				9829B9DB2847D28900F95F9D /* Sources */,
+				9829B9DC2847D28900F95F9D /* Frameworks */,
+				9829B9DD2847D28900F95F9D /* Resources */,
+				60F0D49BF929DBD4AC2A6A5A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PotholeManager;
+			productName = PotholeManager;
+			productReference = 9829B9DF2847D28900F95F9D /* PotholeManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9829B9D72847D28900F95F9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					9829B9DE2847D28900F95F9D = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = 9829B9DA2847D28900F95F9D /* Build configuration list for PBXProject "PotholeManager" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9829B9D62847D28900F95F9D;
+			productRefGroup = 9829B9E02847D28900F95F9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9829B9DE2847D28900F95F9D /* PotholeManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9829B9DD2847D28900F95F9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9829B9EF2847D28C00F95F9D /* LaunchScreen.storyboard in Resources */,
+				9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */,
+				9829B9EC2847D28C00F95F9D /* Assets.xcassets in Resources */,
+				9829B9EA2847D28900F95F9D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F0D49BF929DBD4AC2A6A5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PotholeManager/Pods-PotholeManager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PotholeManager/Pods-PotholeManager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PotholeManager/Pods-PotholeManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F103BD03F533DFC7C1111CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PotholeManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9829B9DB2847D28900F95F9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9829B9E72847D28900F95F9D /* ViewController.swift in Sources */,
+				9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */,
+				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
+				9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */,
+				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
+				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,
+				9829B9FB2847D32400F95F9D /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9829B9E82847D28900F95F9D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9829B9E92847D28900F95F9D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9829B9ED2847D28C00F95F9D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9829B9EE2847D28C00F95F9D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9829B9F12847D28C00F95F9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9829B9F22847D28C00F95F9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9829B9F42847D28C00F95F9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956F25Q2Q3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotholeManager/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.am.PotholeManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9829B9F52847D28C00F95F9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956F25Q2Q3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotholeManager/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.am.PotholeManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9829B9DA2847D28900F95F9D /* Build configuration list for PBXProject "PotholeManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9829B9F12847D28C00F95F9D /* Debug */,
+				9829B9F22847D28C00F95F9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9829B9F32847D28C00F95F9D /* Build configuration list for PBXNativeTarget "PotholeManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9829B9F42847D28C00F95F9D /* Debug */,
+				9829B9F52847D28C00F95F9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9829B9D72847D28900F95F9D /* Project object */;
+}
