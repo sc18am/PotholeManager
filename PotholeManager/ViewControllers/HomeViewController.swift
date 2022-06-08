@@ -6,24 +6,38 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getUserDetails()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    func getUserDetails() {
+        
+        // Get the details of the current user logged on.
+        let user = Auth.auth().currentUser
+        if let user = user {
+          
+            let uid = user.uid
+            let email = user.email
+            
+            welcomeLabel.text = "Welcome " + uid + " " + email!
+        }
+        
     }
-    */
+    
+    
+    
+    
 
 }
