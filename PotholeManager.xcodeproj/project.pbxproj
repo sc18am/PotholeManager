@@ -18,6 +18,7 @@
 		9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9829B9FB2847D32400F95F9D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* HomeViewController.swift */; };
 		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
+		98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF9901287C83F300A98DCD /* LocationManager.swift */; };
 		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		9829B9F82847D31500F95F9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9829B9FA2847D32400F95F9D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98AF9901287C83F300A98DCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.release.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				98E9300F284CF2E200D80682 /* Constants.swift */,
+				98AF9901287C83F300A98DCD /* LocationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */,
 				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
 				9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */,
+				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
 				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,
 				9829B9FB2847D32400F95F9D /* HomeViewController.swift in Sources */,

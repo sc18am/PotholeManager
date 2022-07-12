@@ -11,15 +11,11 @@ import FirebaseAuth
 import FirebaseStorage
 import Firebase
 import FirebaseFirestore
+import CoreLocation
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var label: UILabel!
-    
-    
+
     @IBOutlet weak var streetTextField: UITextField!
     
     
@@ -46,14 +42,14 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     private let storage = Storage.storage().reference()
     
+    var manager: CLLocationManager?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         errorLabel.alpha = 0
-        getUserDetails()
-        
     }
     
     
@@ -85,6 +81,77 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(picker, animated: true)
         
     }
+    
+    
+    @IBAction func getLocationTapped(_ sender: Any) {
+        manager = CLLocationManager()
+        manager?.delegate = self
+        manager?.desiredAccuracy = kCLLocationAccuracyBest
+        manager?.requestWhenInUseAuthorization()
+        manager?.startUpdatingLocation()
+        
+        
+    }
+    
+    
+    // locationManager delegate function.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let location = locations.first else {
+            return
+        }
+        
+        print(location)
+        //streetTextField.text = "\(location.coordinate.longitude)"
+        //cityTextField.text = "\(location.coordinate.latitude)"
+        
+        getLocationDetails(with: location)
+         
+    }
+    
+    
+    // Gets the users location when pressed button and sets the fields for the user.
+    func getLocationDetails(with location: CLLocation) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
+            
+            guard let place = placemarks?.first, error == nil else {
+                return
+
+            }
+            
+            var street = ""
+            
+            if let adminArea = place.administrativeArea {
+                self.residentialDistrictTextField.text = "\(adminArea)"
+                print("AA: \(adminArea)")
+            }
+
+            if let locality = place.locality {
+                self.cityTextField.text = "\(locality)"
+                print("L: \(locality)")
+            }
+
+            if let subThouroughfare = place.subThoroughfare {
+                street += "\(subThouroughfare) "
+                print("ST: \(subThouroughfare)")
+            }
+            if let thoroughfare = place.thoroughfare {
+                street += "\(thoroughfare)"
+                self.streetTextField.text = "\(street)"
+                print("T: \(thoroughfare)")
+            }
+            if let postCode = place.postalCode {
+                self.postcodeTextField.text = "\(postCode)"
+                print("PC: \(postCode)")
+            }
+            print(place)
+        }
+    }
+    
+    
+    
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
