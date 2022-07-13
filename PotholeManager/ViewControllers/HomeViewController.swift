@@ -44,7 +44,16 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var manager: CLLocationManager?
     
+    struct Coordinates {
+        
+        var userLongitude = 0.0
+        var userLatitude = 0.0
+        var locationName = ""
+        
+    }
     
+    // Create instance of struct
+    var userCoordinates = Coordinates()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,8 +114,18 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //streetTextField.text = "\(location.coordinate.longitude)"
         //cityTextField.text = "\(location.coordinate.latitude)"
         
+        getUserCoordinates(with: location)
         getLocationDetails(with: location)
          
+    }
+    
+    
+    // Get users coordinates
+    func getUserCoordinates(with location: CLLocation) {
+        
+        userCoordinates.userLongitude = location.coordinate.longitude
+        userCoordinates.userLatitude = location.coordinate.latitude
+        
     }
     
     
@@ -140,6 +159,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if let thoroughfare = place.thoroughfare {
                 street += "\(thoroughfare)"
                 self.streetTextField.text = "\(street)"
+                self.userCoordinates.locationName = street
                 print("T: \(thoroughfare)")
             }
             if let postCode = place.postalCode {
@@ -199,12 +219,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 print("Failed to upload")
                 return
             }
-            
-            
-            // Save a reference to the file in Firestore DB
-            //let db = Firestore.firestore()
-            //db.collection("images").document().setData(["url":self.globalPath])
-            
             
             
             // If successfully uploaded get the download URL of the image uploaded.
@@ -290,8 +304,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             // Save a reference to the file in Firestore DB
             let db = Firestore.firestore()
-            //db.collection("reports").document().setData(["url":self.globalPath])
-            
+
             db.collection("reports").addDocument(data: ["url": globalPath, "street": street, "city": city, "residentialdistrict": residentialDistrict, "postcode": postcode, "width": width, "depth": depth, "details": enterDetails, "uid": uid, "email": email]) { (error) in
 
                 if error != nil {
@@ -301,7 +314,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
             }
             
-            print("Succesful")
+            print("Succesful , \(userCoordinates.userLatitude), \(userCoordinates.userLongitude), \(userCoordinates.locationName)")
             
         }
     }
