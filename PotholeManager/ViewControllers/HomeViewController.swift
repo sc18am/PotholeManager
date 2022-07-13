@@ -305,6 +305,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // Save a reference to the file in Firestore DB
             let db = Firestore.firestore()
 
+            
+            // Storing the report to the reports database.
             db.collection("reports").addDocument(data: ["url": globalPath, "street": street, "city": city, "residentialdistrict": residentialDistrict, "postcode": postcode, "width": width, "depth": depth, "details": enterDetails, "uid": uid, "email": email]) { (error) in
 
                 if error != nil {
@@ -314,7 +316,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
             }
             
-            print("Succesful , \(userCoordinates.userLatitude), \(userCoordinates.userLongitude), \(userCoordinates.locationName)")
+            
+            // Storing the coordinates and the street name to the locations database.
+            db.collection("locations").addDocument(data: ["longitude" : userCoordinates.userLongitude, "latitude": userCoordinates.userLatitude, "street": userCoordinates.locationName]) { (error) in
+                
+                if error != nil {
+                    
+                    self.showError("Error uploading location information.")
+                }
+                
+            }
+            
+            
+            print("Succesful")
             
         }
     }
