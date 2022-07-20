@@ -9,9 +9,12 @@ import Foundation
 
 struct Constants {
     
+    
+    // Contains all strings for storyboard.
     struct Storyboard {
     
         static let homeViewController = "HomeVC"
+        static let mapViewController = "MapVC"
         
     }
     

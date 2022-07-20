@@ -114,7 +114,7 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-        
+            
             // Creating user
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 

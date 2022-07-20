@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2ED4736D408E85357192E232 /* Pods_PotholeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */; };
+		980147C4287F1CF40077A63A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980147C3287F1CF40077A63A /* MapViewController.swift */; };
 		9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E22847D28900F95F9D /* AppDelegate.swift */; };
 		9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E42847D28900F95F9D /* SceneDelegate.swift */; };
 		9829B9E72847D28900F95F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
@@ -20,11 +21,13 @@
 		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
 		98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF9901287C83F300A98DCD /* LocationManager.swift */; };
 		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
+		98F1991E2881886D00E89BD4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1991D2881886D00E89BD4 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotholeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.debug.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.debug.xcconfig"; sourceTree = "<group>"; };
+		980147C3287F1CF40077A63A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9829B9DF2847D28900F95F9D /* PotholeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotholeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9829B9E22847D28900F95F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9829B9E42847D28900F95F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98AF9901287C83F300A98DCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		98F1991D2881886D00E89BD4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.release.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 				9829B9E42847D28900F95F9D /* SceneDelegate.swift */,
 				98E9300E284CF2C000D80682 /* Helpers */,
 				9829B9FC2847D33200F95F9D /* ViewControllers */,
+				98F1991C2881884200E89BD4 /* Models */,
 				9829B9E82847D28900F95F9D /* Main.storyboard */,
 				9829B9EB2847D28C00F95F9D /* Assets.xcassets */,
 				9829B9ED2847D28C00F95F9D /* LaunchScreen.storyboard */,
@@ -103,6 +108,7 @@
 				9829B9F82847D31500F95F9D /* LoginViewController.swift */,
 				9829B9FA2847D32400F95F9D /* HomeViewController.swift */,
 				9829B9E62847D28900F95F9D /* ViewController.swift */,
+				980147C3287F1CF40077A63A /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -114,6 +120,14 @@
 				98AF9901287C83F300A98DCD /* LocationManager.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		98F1991C2881884200E89BD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98F1991D2881886D00E89BD4 /* Location.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BC2959BB993FB0C04F9298DF /* Pods */ = {
@@ -243,8 +257,10 @@
 			files = (
 				9829B9E72847D28900F95F9D /* ViewController.swift in Sources */,
 				9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */,
+				98F1991E2881886D00E89BD4 /* Location.swift in Sources */,
 				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
 				9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */,
+				980147C4287F1CF40077A63A /* MapViewController.swift in Sources */,
 				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
 				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,

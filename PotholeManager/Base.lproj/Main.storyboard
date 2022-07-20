@@ -268,6 +268,35 @@
             </objects>
             <point key="canvasLocation" x="2567" y="104"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="LAN-wG-gcA">
+            <objects>
+                <viewController storyboardIdentifier="MapVC" id="6C7-2J-Nat" customClass="MapViewController" customModule="PotholeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cTB-WV-c6l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P5q-ff-0cr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Haf-Xj-C2i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Haf-Xj-C2i" firstAttribute="trailing" secondItem="P5q-ff-0cr" secondAttribute="trailing" id="0f2-eK-pL2"/>
+                            <constraint firstItem="P5q-ff-0cr" firstAttribute="top" secondItem="Haf-Xj-C2i" secondAttribute="top" id="3bZ-3G-aFg"/>
+                            <constraint firstItem="P5q-ff-0cr" firstAttribute="leading" secondItem="Haf-Xj-C2i" secondAttribute="leading" id="8TC-bt-8hr"/>
+                            <constraint firstItem="Haf-Xj-C2i" firstAttribute="bottom" secondItem="P5q-ff-0cr" secondAttribute="bottom" id="SFo-mx-kJk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="P5q-ff-0cr" id="Qaz-Ap-Upb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9J-Xs-jia" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3386" y="104"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vXa-sG-x6x">
             <objects>
