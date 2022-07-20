@@ -22,37 +22,43 @@ class MapViewController: UIViewController {
     }
 
     
-    
+    // Called when the data is retrieved and is used to pin plot the locations.
     func loadedLocations(locations: [Location]) {
-        print("end 2: \(locations.count)")
-        
+
         for location in locations {
             drawLocationOnMap(location: location)
         }
     }
     
     
-    
+    // Function to plot the pins on the map.
     func drawLocationOnMap(location: Location) {
         print("drawing point: \(location.streetName)")
         
-        print(location.streetName)
-        print(location.longitude)
-        print(location.latitude)
+        let annotations = MKPointAnnotation()
+        
+        annotations.title = location.streetName
+        annotations.coordinate = CLLocationCoordinate2D(latitude: location.latitude,
+                                                        longitude: location.longitude)
+        
+        mapView.addAnnotation(annotations)
         
     }
     
     
     
-    
+    // Function to get data about locations from firestore database.
     func getData(completion: @escaping ([Location]) -> Void) {
+      
         // Get reference to the database.
         let db = Firestore.firestore()
-        var locationList = [Location]()
         
+        var locationList = [Location]()
         
         // Read the documents of the specific database
         db.collection("locations").getDocuments { snapshot, error in
+            
+            // Check for errors
             if error == nil {
                 // No errors
                 

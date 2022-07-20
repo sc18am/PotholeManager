@@ -175,7 +175,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
-        addReportToDatabase(globalPath: globalPath)
+        //addReportToDatabase(globalPath: globalPath)
         transtionToMap()
     }
     
