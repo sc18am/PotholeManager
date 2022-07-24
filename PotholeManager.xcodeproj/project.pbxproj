@@ -19,6 +19,9 @@
 		9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9829B9FB2847D32400F95F9D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* HomeViewController.swift */; };
 		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
+		985661742888496A0071E431 /* CustomPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985661732888496A0071E431 /* CustomPostTableViewCell.swift */; };
+		9856617628897A550071E431 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856617528897A550071E431 /* Post.swift */; };
+		98A9FE6028882FC60087D1AD /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9FE5F28882FC60087D1AD /* PostsViewController.swift */; };
 		98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF9901287C83F300A98DCD /* LocationManager.swift */; };
 		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
 		98F1991E2881886D00E89BD4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1991D2881886D00E89BD4 /* Location.swift */; };
@@ -40,6 +43,9 @@
 		9829B9F82847D31500F95F9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9829B9FA2847D32400F95F9D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		985661732888496A0071E431 /* CustomPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPostTableViewCell.swift; sourceTree = "<group>"; };
+		9856617528897A550071E431 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		98A9FE5F28882FC60087D1AD /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		98AF9901287C83F300A98DCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98F1991D2881886D00E89BD4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 			children = (
 				9829B9E22847D28900F95F9D /* AppDelegate.swift */,
 				9829B9E42847D28900F95F9D /* SceneDelegate.swift */,
+				98566172288849320071E431 /* CustomCells */,
 				98E9300E284CF2C000D80682 /* Helpers */,
 				9829B9FC2847D33200F95F9D /* ViewControllers */,
 				98F1991C2881884200E89BD4 /* Models */,
@@ -109,8 +116,17 @@
 				9829B9FA2847D32400F95F9D /* HomeViewController.swift */,
 				9829B9E62847D28900F95F9D /* ViewController.swift */,
 				980147C3287F1CF40077A63A /* MapViewController.swift */,
+				98A9FE5F28882FC60087D1AD /* PostsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		98566172288849320071E431 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				985661732888496A0071E431 /* CustomPostTableViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		98E9300E284CF2C000D80682 /* Helpers */ = {
@@ -126,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				98F1991D2881886D00E89BD4 /* Location.swift */,
+				9856617528897A550071E431 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +276,10 @@
 				9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */,
 				98F1991E2881886D00E89BD4 /* Location.swift in Sources */,
 				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
+				9856617628897A550071E431 /* Post.swift in Sources */,
+				985661742888496A0071E431 /* CustomPostTableViewCell.swift in Sources */,
 				9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */,
+				98A9FE6028882FC60087D1AD /* PostsViewController.swift in Sources */,
 				980147C4287F1CF40077A63A /* MapViewController.swift in Sources */,
 				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,

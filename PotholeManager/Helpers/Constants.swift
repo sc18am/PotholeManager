@@ -15,6 +15,8 @@ struct Constants {
     
         static let homeViewController = "HomeVC"
         static let mapViewController = "MapVC"
+        static let postsViewController = "PostsVC"
+        
         
     }
     

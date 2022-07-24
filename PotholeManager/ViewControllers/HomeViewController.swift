@@ -110,10 +110,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             return
         }
         
-        print(location)
-        //streetTextField.text = "\(location.coordinate.longitude)"
-        //cityTextField.text = "\(location.coordinate.latitude)"
-        
         getUserCoordinates(with: location)
         getLocationDetails(with: location)
          
@@ -175,8 +171,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
-        //addReportToDatabase(globalPath: globalPath)
-        transtionToMap()
+        addReportToDatabase(globalPath: globalPath)
+        //transtionToMap()
+        transtionToPosts()
     }
     
     
@@ -229,13 +226,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
                 
                 let urlString = url.absoluteString
-                
-                
-                // ** WORKS BUT NEED TO FIX WITH BOUNDARIES ** //
-                //DispatchQueue.main.async{
-                //    self.label.text = urlString
-                //    self.imageView.image = image
-                //}
                 
                 print("Download URL: \(urlString)")
                 UserDefaults.standard.set(url, forKey: "url") // To download the latest image - Not sure needed.
@@ -338,6 +328,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let  mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mapViewController) as? MapViewController
         
         self.view.window?.rootViewController = mapViewController
+        self.view.window?.makeKeyAndVisible()
+        
+    }
+    
+    func transtionToPosts() {
+        
+        let postsViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.postsViewController) as? PostsViewController
+        
+        self.view.window?.rootViewController = postsViewController
         self.view.window?.makeKeyAndVisible()
         
     }

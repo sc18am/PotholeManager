@@ -18,7 +18,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         getData(completion: loadedLocations)
-
+        //table.dataSource = self
     }
 
     
