@@ -15,8 +15,8 @@ struct Post {
     var city: String
     var residentialDistrict: String
     var zipCode: String
-    var width: Int
-    var depth: Int
+    var width: String
+    var depth: String
     var furtherDetails: String
     var imageURL: String
     

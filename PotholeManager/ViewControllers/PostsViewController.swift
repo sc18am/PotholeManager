@@ -43,18 +43,24 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomPostTableViewCell
         
-   
+        print("POST URL IS: \(post.imageURL)")
         downloadURL(for: post.imageURL) { url in
-            print(url)
+            print("THIS IS THE URL \(url)")
+            self.downloadImage(imageView: cell.postImageView, url: url)
+              
         }
+        
+        print("I AM HERE")
         
         cell.streetLabel.text = post.street
         cell.cityLabel.text = post.city
         cell.residentialDistrictLabel.text = post.residentialDistrict
         cell.zipCodeLabel.text = post.zipCode
-        cell.widthLabel.text = String(post.width)
-        cell.depthLabel.text = String(post.depth)
+        cell.widthLabel.text = post.width
+        cell.depthLabel.text = post.depth
         cell.detailsLabel.text = post.furtherDetails    
+        
+        print("END")
         
         return cell
     }
@@ -82,6 +88,22 @@ class PostsViewController: UIViewController, UITableViewDataSource {
     }
     
     
+    func downloadImage(imageView: UIImageView, url: URL) {
+      
+        let task = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                imageView.image = image
+            }
+        })
+        
+        task.resume()
+        
+    }
     
     
     func getData(completion: @escaping () -> ()) {
@@ -106,8 +128,8 @@ class PostsViewController: UIViewController, UITableViewDataSource {
                                         city: doc["city"] as? String ?? "",
                                         residentialDistrict: doc["residentialdistrict"] as? String ?? "",
                                         zipCode: doc["postcode"] as? String ?? "",
-                                        width: doc["width"] as? Int ?? 0,
-                                        depth: doc["depth"] as? Int ?? 0,
+                                        width: doc["width"] as? String ?? "0",
+                                        depth: doc["depth"] as? String ?? "0",
                                         furtherDetails: doc["details"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
                         
