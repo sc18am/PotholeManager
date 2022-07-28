@@ -172,8 +172,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
         //addReportToDatabase(globalPath: globalPath)
-        transtionToMap()
-        //transtionToPosts()
+        transitionToMap()
+        //transitionToPosts()
     }
     
     
@@ -323,7 +323,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func transtionToMap() {
+    func transitionToMap() {
         
         let  mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mapViewController) as? MapViewController
         
@@ -332,7 +332,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    func transtionToPosts() {
+    func transitionToPosts() {
         
         let postsViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.postsViewController) as? PostsViewController
         

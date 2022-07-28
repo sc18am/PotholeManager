@@ -153,62 +153,6 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         }
         
     }
-    /*
-    func returnedPosts(posts: [Post]){
-        
-        print("The length of the posts: \(posts.count)")
-        
     
-    } */
-    
-    /*
-    func getData(completion: @escaping ([Post]) -> Void) {
-        
-        // Get reference to database.
-        let db = Firestore.firestore()
-        
-        var postsList = [Post]()
-        
-        // Read the documents at posts path.
-        db.collection("reports").getDocuments { snapshot, error in
-            
-            // Check for error
-            if error == nil {
-                
-                if let snapshot = snapshot {
-                    
-                    // Get all documents and create posts from reports.
-                    postsList = snapshot.documents.map { doc in
-                        
-                        let post = Post(id: doc.documentID,
-                                        street: doc["street"] as? String ?? "",
-                                        city: doc["city"] as? String ?? "",
-                                        residentialDistrict: doc["district"] as? String ?? "",
-                                        zipCode: doc["postcode"] as? String ?? "",
-                                        width: doc["width"] as? Int ?? 0,
-                                        depth: doc["depth"] as? Int ?? 0,
-                                        furtherDetails: doc["details"] as? String ?? "",
-                                        imageURL: doc["url"] as? String ?? "")
-                        
-                       // print("Post: \(post)")
-                        
-                        return post
-                    }
-                    
-                    print("Array size: \(postsList.count)")
-                    completion(postsList)
-                }
-                
-                
-            }
-            else {
-                
-                // Handle error.
-                completion(postsList)
-            }
-            
-        }
-        
-    } */
 
 }
