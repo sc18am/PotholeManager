@@ -44,6 +44,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var manager: CLLocationManager?
     
+    var getLocationButtonTapped = false
+    
     struct Coordinates {
         
         var userLongitude = 0.0
@@ -61,6 +63,42 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         errorLabel.alpha = 0
     }
     
+    
+    // If the user fills in the location part it gets the coordinates from the information entered.
+    func setAddressCoordinates(with address: String, completion: @escaping () -> ()) {
+        
+       // let address = ["1 Infinite Loop, Cupertino, CA 95014", "1 Infinite Loop, Cupertino, CA", "10 Alikis Vougiouklaki, Limassol, 3117", "Mesogeiou 5A, Limassol, Ayia Fyla, Cyprus"]
+        //print(address)
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { placemarks, error in
+            
+            //let placemark = placemarks?.first
+            //print("placemark = \(placemark)")
+            guard let place = placemarks?.first, error == nil else {
+                return
+            }
+            
+            var street = ""
+            
+            if let lat = place.location?.coordinate.latitude {
+                self.userCoordinates.userLatitude = lat
+            }
+            if let lon = place.location?.coordinate.longitude {
+                self.userCoordinates.userLongitude = lon
+            }
+            if let subThouroughfare = place.subThoroughfare {
+                street += "\(subThouroughfare) "
+            }
+            if let thoroughfare = place.thoroughfare {
+                street += "\(thoroughfare)"
+                self.userCoordinates.locationName = street
+
+            }
+            //print("COORDINATES IN THE LOOP \(self.userCoordinates)")
+            completion()
+        }
+    }
     
     
     func getUserDetails() -> (uid: String, email: String?) {
@@ -99,6 +137,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         manager?.requestWhenInUseAuthorization()
         manager?.startUpdatingLocation()
         
+        getLocationButtonTapped = true
         
     }
     
@@ -121,11 +160,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         userCoordinates.userLongitude = location.coordinate.longitude
         userCoordinates.userLatitude = location.coordinate.latitude
+        //print(userCoordinates)
         
     }
     
     
-    // Gets the users location when pressed button and sets the fields for the user.
+    // Gets the users location when getLocation button pressed and sets the fields for the user.
     func getLocationDetails(with location: CLLocation) {
         
         let geocoder = CLGeocoder()
@@ -147,7 +187,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.cityTextField.text = "\(locality)"
                 print("L: \(locality)")
             }
-
             if let subThouroughfare = place.subThoroughfare {
                 street += "\(subThouroughfare) "
                 print("ST: \(subThouroughfare)")
@@ -162,7 +201,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.postcodeTextField.text = "\(postCode)"
                 print("PC: \(postCode)")
             }
-            print(place)
+            //print(self.userCoordinates)
         }
     }
     
@@ -171,8 +210,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
-        //addReportToDatabase(globalPath: globalPath)
-        transitionToMap()
+        addReportToDatabase(globalPath: globalPath)
+        getLocationButtonTapped = false
+        //transitionToMap()
         //transitionToPosts()
     }
     
@@ -264,6 +304,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
+    func setLocation() {
+        
+    }
+    
+    
     func addReportToDatabase(globalPath: String) {
         
         
@@ -291,7 +336,24 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let uid = getUserDetails().uid
             let email = getUserDetails().email!
            
+            let address = "\(street), \(city), \(residentialDistrict), \(postcode)"
             
+            //print("IS BUTTON TAPPED? \(getLocationButtonTapped)")
+            //print(address)
+            //print("Initial struct: \(userCoordinates)")
+            if getLocationButtonTapped == false {
+                //print("In the if with \(getLocationButtonTapped)")
+                setAddressCoordinates(with: address) {
+                    //print("Users Coordinates are: \(self.userCoordinates)")
+                    self.addLocationToDatabase(street: self.userCoordinates.locationName, latitude: self.userCoordinates.userLatitude, longitude: self.userCoordinates.userLongitude)
+                }
+            }
+            else{
+                //print("Users Coordinates are: \(userCoordinates)")
+                addLocationToDatabase(street: userCoordinates.locationName, latitude: userCoordinates.userLatitude, longitude: userCoordinates.userLongitude)
+            }
+            
+            /*
             // Save a reference to the file in Firestore DB
             let db = Firestore.firestore()
 
@@ -317,11 +379,16 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
             }
             
-            
-            print("Succesful")
+            */
+            //print("Succesful")
             
         }
     }
+    
+    func addLocationToDatabase(street: String, latitude: Double, longitude: Double) {
+        print("\(street), \(latitude), \(longitude)")
+    }
+    
     
     func transitionToMap() {
         
