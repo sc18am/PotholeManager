@@ -353,7 +353,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 addLocationToDatabase(street: userCoordinates.locationName, latitude: userCoordinates.userLatitude, longitude: userCoordinates.userLongitude)
             }
             
-            /*
+            
             // Save a reference to the file in Firestore DB
             let db = Firestore.firestore()
 
@@ -367,26 +367,23 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     self.showError("Error uploading the report to the database.")
                 }
             }
-            
-            
-            // Storing the coordinates and the street name to the locations database.
-            db.collection("locations").addDocument(data: ["longitude" : userCoordinates.userLongitude, "latitude": userCoordinates.userLatitude, "street": userCoordinates.locationName]) { (error) in
-                
-                if error != nil {
-                    
-                    self.showError("Error uploading location information.")
-                }
-                
-            }
-            
-            */
-            //print("Succesful")
-            
         }
     }
     
     func addLocationToDatabase(street: String, latitude: Double, longitude: Double) {
-        print("\(street), \(latitude), \(longitude)")
+        
+        // Save a reference to the file in Firestore DB
+        let db = Firestore.firestore()
+        
+        // Storing the coordinates and the street name to the locations database.
+        db.collection("locations").addDocument(data: ["longitude" : longitude, "latitude": latitude, "street": street]) { (error) in
+            
+            if error != nil {
+                
+                self.showError("Error uploading location information.")
+            }
+        }
+        print("success")
     }
     
     
