@@ -276,8 +276,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter City" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJb-2a-leW">
+                                <rect key="frame" x="10" y="54" width="394" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Rav-ei-Z5b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jgx-iE-5bm">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="157" width="414" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="190" id="96f-uT-2zf" customClass="CustomPostTableViewCell" customModule="PotholeManager" customModuleProvider="target">
@@ -364,17 +372,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nox-h3-dTn">
+                                <rect key="frame" x="10" y="116" width="394" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="GS7-lh-W93" eventType="touchUpInside" id="S88-Yp-qC7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qja-xs-d3U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jgx-iE-5bm" firstAttribute="top" secondItem="Qja-xs-d3U" secondAttribute="top" id="I8b-Dv-alL"/>
-                            <constraint firstItem="Qja-xs-d3U" firstAttribute="trailing" secondItem="jgx-iE-5bm" secondAttribute="trailing" id="M6b-CB-RRv"/>
-                            <constraint firstItem="jgx-iE-5bm" firstAttribute="leading" secondItem="Qja-xs-d3U" secondAttribute="leading" id="cEe-Ql-8de"/>
-                            <constraint firstItem="Qja-xs-d3U" firstAttribute="bottom" secondItem="jgx-iE-5bm" secondAttribute="bottom" id="tmx-yo-PvT"/>
+                            <constraint firstItem="Qja-xs-d3U" firstAttribute="trailing" secondItem="IJb-2a-leW" secondAttribute="trailing" constant="10" id="3vn-xH-bww"/>
+                            <constraint firstItem="IJb-2a-leW" firstAttribute="leading" secondItem="Qja-xs-d3U" secondAttribute="leading" constant="10" id="4bz-nb-bgW"/>
+                            <constraint firstItem="Qja-xs-d3U" firstAttribute="trailing" secondItem="Nox-h3-dTn" secondAttribute="trailing" constant="10" id="7io-SW-PqQ"/>
+                            <constraint firstItem="jgx-iE-5bm" firstAttribute="bottom" secondItem="Qja-xs-d3U" secondAttribute="bottom" id="9mx-qX-Izn"/>
+                            <constraint firstItem="Nox-h3-dTn" firstAttribute="leading" secondItem="Qja-xs-d3U" secondAttribute="leading" constant="10" id="DVH-KP-o2G"/>
+                            <constraint firstItem="jgx-iE-5bm" firstAttribute="trailing" secondItem="Qja-xs-d3U" secondAttribute="trailing" id="H1s-Ew-1Pl"/>
+                            <constraint firstItem="jgx-iE-5bm" firstAttribute="top" secondItem="Nox-h3-dTn" secondAttribute="bottom" constant="10" id="YSq-WM-h3o"/>
+                            <constraint firstItem="IJb-2a-leW" firstAttribute="top" secondItem="Qja-xs-d3U" secondAttribute="top" constant="10" id="dsb-m3-xD7"/>
+                            <constraint firstItem="jgx-iE-5bm" firstAttribute="leading" secondItem="Qja-xs-d3U" secondAttribute="leading" id="gFx-ka-Bug"/>
+                            <constraint firstItem="Nox-h3-dTn" firstAttribute="top" secondItem="IJb-2a-leW" secondAttribute="bottom" constant="10" id="njG-Fd-emQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchTextField" destination="IJb-2a-leW" id="bhj-V7-zLD"/>
                         <outlet property="table" destination="jgx-iE-5bm" id="MiD-UG-kLb"/>
                     </connections>
                 </viewController>

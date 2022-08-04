@@ -210,10 +210,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
-        addReportToDatabase(globalPath: globalPath)
+        //addReportToDatabase(globalPath: globalPath)
         getLocationButtonTapped = false
         //transitionToMap()
-        //transitionToPosts()
+        transitionToPosts()
     }
     
     
@@ -370,6 +370,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    
+    // Function to store the location to the database.
     func addLocationToDatabase(street: String, latitude: Double, longitude: Double) {
         
         // Save a reference to the file in Firestore DB

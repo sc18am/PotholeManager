@@ -12,6 +12,8 @@ import MapKit
 
 class PostsViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var searchTextField: UITextField!
+    
     @IBOutlet weak var table: UITableView!
     
     var postsList = [Post]()
@@ -28,6 +30,16 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         
         table.dataSource = self
         
+    }
+    
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        
+        let search = searchTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        getFilteredPosts(with: search) {
+            self.table.reloadData()
+        }
     }
     
     
@@ -105,7 +117,7 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    
+    // Function to get all the data from all the posts in the database.
     func getData(completion: @escaping () -> ()) {
         
         // Get reference to database.
@@ -154,5 +166,52 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         
     }
     
-
+    
+    
+    func getFilteredPosts(with district: String, completion: @escaping () -> ()) {
+        
+        // Get reference to database.
+        let db = Firestore.firestore()
+        
+        
+        // Read the documents at posts path.
+        db.collection("reports").whereField("residentialdistrict", isEqualTo: district).getDocuments { snapshot, error in
+            
+            // Check for error
+            if error == nil {
+                
+                if let snapshot = snapshot {
+                    
+                    // Get all documents and create posts from reports.
+                    self.postsList = snapshot.documents.map { doc in
+                        
+                        let post = Post(id: doc.documentID,
+                                        street: doc["street"] as? String ?? "",
+                                        city: doc["city"] as? String ?? "",
+                                        residentialDistrict: doc["residentialdistrict"] as? String ?? "",
+                                        zipCode: doc["postcode"] as? String ?? "",
+                                        width: doc["width"] as? String ?? "0",
+                                        depth: doc["depth"] as? String ?? "0",
+                                        furtherDetails: doc["details"] as? String ?? "",
+                                        imageURL: doc["url"] as? String ?? "")
+                        
+                       // print("Post: \(post)")
+                        
+                        return post
+                    }
+                    
+                    print("Array size: \(self.postsList.count)")
+                    completion()
+                }
+                
+                
+            }
+            else {
+                
+                // Handle error.
+                completion()
+            }
+            
+        }
+    }
 }
