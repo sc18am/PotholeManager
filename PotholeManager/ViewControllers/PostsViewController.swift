@@ -10,7 +10,7 @@ import Firebase
 import FirebaseStorage
 import MapKit
 
-class PostsViewController: UIViewController, UITableViewDataSource {
+class PostsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -29,6 +29,7 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         }
         
         table.dataSource = self
+        table.delegate = self
         
     }
     
@@ -77,7 +78,9 @@ class PostsViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
     
     func downloadURL(for path: String, completion: @escaping (URL) -> Void) {
         
