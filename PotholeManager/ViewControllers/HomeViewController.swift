@@ -304,11 +304,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
-    func setLocation() {
-        
-    }
-    
-    
     func addReportToDatabase(globalPath: String) {
         
         

@@ -9,13 +9,15 @@ import UIKit
 
 protocol CustomPostTableViewCellDelegate: AnyObject {
     
-    func likeButtonTapped()
+    func likeButtonTapped(with postid: String)
     
 }
 
 
 class CustomPostTableViewCell: UITableViewCell {
-
+    
+    var postId = ""
+    
     weak var delegate: CustomPostTableViewCellDelegate?
 
     @IBOutlet weak var likeButton: UIButton!
@@ -39,6 +41,11 @@ class CustomPostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     
     @IBAction func likeButtonTapped(_ sender: Any) {
-        delegate?.likeButtonTapped()
+        delegate?.likeButtonTapped(with: postId)
     }
+    
+    func configure(with postid: String) {
+        postId = postid
+    }
+    
 }

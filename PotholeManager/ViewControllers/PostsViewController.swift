@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import FirebaseAuth
 import MapKit
 
 class PostsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -53,19 +54,23 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = postsList[indexPath.row]
+        let postId = post.id
         
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomPostTableViewCell
         
+        // Custom delegate.
+        cell.configure(with: postId)
         cell.delegate = self
+        //cell.delegate?.likeButtonTapped()
         
-        print("POST URL IS: \(post.imageURL)")
+        //print("POST URL IS: \(post.imageURL)")
         downloadURL(for: post.imageURL) { url in
-            print("THIS IS THE URL \(url)")
+            //print("THIS IS THE URL \(url)")
             self.downloadImage(imageView: cell.postImageView, url: url)
               
         }
         
-        print("I AM HERE")
+        //print("I AM HERE")
         
         cell.streetLabel.text = post.street
         cell.cityLabel.text = post.city
@@ -75,7 +80,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.depthLabel.text = post.depth
         cell.detailsLabel.text = post.furtherDetails    
         
-        print("END")
+        //print("END")
         
         return cell
     }
@@ -174,7 +179,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    
+    // Get posts from firestore database based on the users search query.
     func getFilteredPosts(with district: String, completion: @escaping () -> ()) {
         
         // Get reference to database.
@@ -202,7 +207,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         furtherDetails: doc["details"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
                         
-                       // print("Post: \(post)")
+                        print("Post: \(post.id)")
                         
                         return post
                     }
@@ -221,13 +226,50 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
     }
+    
+    // Like the specific post based on the post id.
+    func likePost(with postid: String, with uid: String, completion: @escaping () -> ()) {
+        
+        // Get reference to database.
+        let db = Firestore.firestore()
+        
+        
+        // Read the documents at posts path and update the fields.
+        db.collection("reports").document(postid).updateData([
+            "likedby": FieldValue.arrayUnion([uid])
+        ])
+        
+        completion()
+        
+    }
+    
+    
+    // Gets the users id currently logged on.
+    func getUserId() -> (String) {
+        
+        // Get the details of the current user logged on.
+        let user = Auth.auth().currentUser
+        if let user = user {
+          
+            let uid = user.uid
+            
+            return (uid)
+            
+        }
+        
+        return ("")
+        
+    }
 }
 
 
 extension PostsViewController: CustomPostTableViewCellDelegate {
     
-    func likeButtonTapped() {
-        print("Liked")
+    func likeButtonTapped(with postid: String) {
+        let uid = getUserId()
+        likePost(with: postid, with: uid) {
+            print("finished")
+        }
     }
     
 }
