@@ -56,6 +56,8 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomPostTableViewCell
         
+        cell.delegate = self
+        
         print("POST URL IS: \(post.imageURL)")
         downloadURL(for: post.imageURL) { url in
             print("THIS IS THE URL \(url)")
@@ -78,6 +80,8 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    
+    // Sets cells to constant size in table.
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
@@ -217,4 +221,13 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
     }
+}
+
+
+extension PostsViewController: CustomPostTableViewCellDelegate {
+    
+    func likeButtonTapped() {
+        print("Liked")
+    }
+    
 }

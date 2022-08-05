@@ -7,9 +7,19 @@
 
 import UIKit
 
+protocol CustomPostTableViewCellDelegate: AnyObject {
+    
+    func likeButtonTapped()
+    
+}
+
+
 class CustomPostTableViewCell: UITableViewCell {
 
+    weak var delegate: CustomPostTableViewCellDelegate?
 
+    @IBOutlet weak var likeButton: UIButton!
+    
     @IBOutlet weak var postImageView: UIImageView!
     
     @IBOutlet weak var streetLabel: UILabel!
@@ -26,4 +36,9 @@ class CustomPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailsLabel: UILabel!
     
+    @IBOutlet weak var likeLabel: UILabel!
+    
+    @IBAction func likeButtonTapped(_ sender: Any) {
+        delegate?.likeButtonTapped()
+    }
 }
