@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1722" y="483"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="4jA-we-otA">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="RDR-J5-zzO" customClass="HomeViewController" customModule="PotholeManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReportVC" id="RDR-J5-zzO" customClass="ReportViewController" customModule="PotholeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8v8-6G-1Tg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yd-VS-c2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="104"/>
+            <point key="canvasLocation" x="3470" y="104"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="og4-hc-lyJ">
@@ -419,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-YS-RU6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3408.6956521739135" y="482.8125"/>
+            <point key="canvasLocation" x="4216" y="483"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="LAN-wG-gcA">
@@ -448,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9J-Xs-jia" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3409" y="-198"/>
+            <point key="canvasLocation" x="4254" y="-198"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vXa-sG-x6x">

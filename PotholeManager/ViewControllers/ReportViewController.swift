@@ -13,7 +13,7 @@ import Firebase
 import FirebaseFirestore
 import CoreLocation
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
 
     @IBOutlet weak var streetTextField: UITextField!
