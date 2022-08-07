@@ -89,7 +89,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         checkLiked(with: postId) { liked in
             
             if liked {
-                cell.likeButton.setTitle("Liked", for: .normal)
+                cell.likeButton.setTitle("Unlike", for: .normal)
             }
             else {
                 cell.likeButton.setTitle("Like", for: .normal)
@@ -258,6 +258,21 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    func unlikePost(with postid: String, with uid: String, completion: @escaping () -> ()) {
+        
+        // Get reference to database.
+        let db = Firestore.firestore()
+        
+        
+        // Read the documents at posts path and update the fields.
+        db.collection("reports").document(postid).updateData([
+            "likedby": FieldValue.arrayRemove([uid])
+        ])
+        
+        completion()
+        
+    }
+    
     // Get the likes of a specific post.
     func getLikeTotal(with postid: String, completion: @escaping (Int) -> ()) {
         
@@ -352,12 +367,32 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
         
         let uid = getUserId()
         
-        likePost(with: postid, with: uid) {
-            self.getLikeTotal(with: postid) { likes in
+        //likePost(with: postid, with: uid) {
+        //    self.getLikeTotal(with: postid) { likes in
                 // Set like button with likes
-                self.table.reloadData()
+        //        self.table.reloadData()
+        //    }
+        //}
+        checkLiked(with: postid, completion: { liked in
+            
+            if liked {
+                print("I have it liked")
+                self.unlikePost(with: postid, with: uid) {
+                    self.getLikeTotal(with: postid) { likes in
+                        self.table.reloadData()
+                    }
+                }
             }
-        }
+            else {
+                print("I just liked this.")
+                self.likePost(with: postid, with: uid) {
+                    self.getLikeTotal(with: postid) { likes in
+                        // Set like button with likes
+                        self.table.reloadData()
+                    }
+                }
+            }
+        })
     }
     
 }
