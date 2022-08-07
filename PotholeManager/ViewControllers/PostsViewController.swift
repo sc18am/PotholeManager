@@ -79,8 +79,22 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.widthLabel.text = post.width
         cell.depthLabel.text = post.depth
         cell.detailsLabel.text = post.furtherDetails    
-        
+        //cell.likeLabel.text = "CALL THE FUNCTION FOR LIKES"
         //print("END")
+        
+        getLikeTotal(with: postId) { likes in
+            cell.likeLabel.text = String(likes)
+        }
+        
+        checkLiked(with: postId) { liked in
+            
+            if liked {
+                cell.likeButton.setTitle("Liked", for: .normal)
+            }
+            else {
+                cell.likeButton.setTitle("Like", for: .normal)
+            }
+        }
         
         return cell
     }
@@ -244,6 +258,75 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    // Get the likes of a specific post.
+    func getLikeTotal(with postid: String, completion: @escaping (Int) -> ()) {
+        
+        // Get reference to database.
+        let db = Firestore.firestore()
+        
+        
+        // Read the documents at posts path and update the fields.
+        db.collection("reports").document(postid).getDocument { snapshot, error in
+            
+            if let snapshot = snapshot, snapshot.exists {
+                
+                let elements = snapshot["likedby"] as? [String] ?? [""]
+                
+                // Check if the likes are empty.
+                if elements == [""] {
+                    completion(0)
+                }
+                else {
+                    let likes = elements.count
+                    print("Elemets \(elements), likes \(likes)")
+                    completion(likes)
+                }
+            }
+            else {
+                print("error")
+                completion(0)
+            }
+        }
+        
+    }
+    
+    
+    func checkLiked(with postid: String, completion: @escaping (Bool) -> ()) {
+        
+        let uid = getUserId()
+        
+        // Get reference to database.
+        let db = Firestore.firestore()
+        
+        
+        // Read the documents at posts path and update the fields.
+        db.collection("reports").document(postid).getDocument { snapshot, error in
+            
+            if let snapshot = snapshot, snapshot.exists {
+                
+                let elements = snapshot["likedby"] as? [String] ?? [""]
+                
+                // Check if the likes are empty.
+                if elements.contains(uid) {
+                    //print("POST LIKED")
+                    completion(true)
+                }
+                else {
+                    //print("NOT LIKED")
+                    completion(false)
+                }
+            }
+            else {
+                print("error")
+                completion(false)
+            }
+        }
+        
+        
+    }
+    
+    
+    
     // Gets the users id currently logged on.
     func getUserId() -> (String) {
         
@@ -266,9 +349,14 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
 extension PostsViewController: CustomPostTableViewCellDelegate {
     
     func likeButtonTapped(with postid: String) {
+        
         let uid = getUserId()
+        
         likePost(with: postid, with: uid) {
-            print("finished")
+            self.getLikeTotal(with: postid) { likes in
+                // Set like button with likes
+                self.table.reloadData()
+            }
         }
     }
     
