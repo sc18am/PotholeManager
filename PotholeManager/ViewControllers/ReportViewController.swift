@@ -61,7 +61,22 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         
         errorLabel.alpha = 0
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
     }
+    
+    
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     
     
     // If the user fills in the location part it gets the coordinates from the information entered.

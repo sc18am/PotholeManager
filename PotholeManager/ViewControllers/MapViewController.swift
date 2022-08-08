@@ -20,9 +20,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
 
         getData(completion: loadedLocations)
-        //table.dataSource = self
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
     }
 
+    
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     
     // Called when the data is retrieved and is used to pin plot the locations.
     func loadedLocations(locations: [Location]) {

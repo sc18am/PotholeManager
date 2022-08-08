@@ -32,6 +32,10 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         table.dataSource = self
         table.delegate = self
         
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
+
     }
     
     
@@ -43,6 +47,18 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.table.reloadData()
         }
     }
+    
+    
+    
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     
     
     

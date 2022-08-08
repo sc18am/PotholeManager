@@ -28,7 +28,22 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         table.dataSource = self
         table.delegate = self
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
     }
+    
+    
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postsList.count
