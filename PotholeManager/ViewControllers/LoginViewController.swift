@@ -58,9 +58,9 @@ class LoginViewController: UIViewController {
             }
             else {
                 
-                let  reportViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.reportViewController) as? ReportViewController
+                let  homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
                 
-                self.view.window?.rootViewController = reportViewController
+                self.view.window?.rootViewController = homeViewController
                 self.view.window?.makeKeyAndVisible()
                 
             }
