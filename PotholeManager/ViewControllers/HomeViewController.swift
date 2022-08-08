@@ -53,6 +53,17 @@ class HomeViewController: UIViewController {
     }
     
     
+    
+    @IBAction func myReportsButtonTapped(_ sender: Any) {
+    
+        let myPostsViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.myPostsViewController) as? MyPostsViewController
+        
+        self.view.window?.rootViewController = myPostsViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
+    
+    
     // Gets the current users first name.
     func getUserName(completion: @escaping (String) -> ()) {
         
