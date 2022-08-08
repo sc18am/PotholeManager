@@ -46,13 +46,13 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var getLocationButtonTapped = false
     
-    struct Coordinates {
+   // struct Coordinates {
         
-        var userLongitude = 0.0
-        var userLatitude = 0.0
-        var locationName = ""
+   //     var userLongitude = 0.0
+   //     var userLatitude = 0.0
+   //     var locationName = ""
         
-    }
+    //}
     
     // Create instance of struct
     var userCoordinates = Coordinates()
@@ -348,9 +348,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
            
             let address = "\(street), \(city), \(residentialDistrict), \(postcode)"
             
-            //print("IS BUTTON TAPPED? \(getLocationButtonTapped)")
-            //print(address)
-            //print("Initial struct: \(userCoordinates)")
+
             if getLocationButtonTapped == false {
                 //print("In the if with \(getLocationButtonTapped)")
                 setAddressCoordinates(with: address) {

@@ -10,6 +10,23 @@
 		2ED4736D408E85357192E232 /* Pods_PotholeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */; };
 		980147C4287F1CF40077A63A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980147C3287F1CF40077A63A /* MapViewController.swift */; };
 		9822A1A528A10A690020CAF8 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A428A10A690020CAF8 /* MyPost.swift */; };
+		9822A1A728A12D2E0020CAF8 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A628A12D2E0020CAF8 /* Coordinates.swift */; };
+		9822A1AF28A132460020CAF8 /* PotholeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1AE28A132460020CAF8 /* PotholeManagerTests.swift */; };
+		9822A1B728A13D960020CAF8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980147C3287F1CF40077A63A /* MapViewController.swift */; };
+		9822A1B828A142AB0020CAF8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1991D2881886D00E89BD4 /* Location.swift */; };
+		9822A1B928A142C60020CAF8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
+		9822A1BA28A142E80020CAF8 /* CustomPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985661732888496A0071E431 /* CustomPostTableViewCell.swift */; };
+		9822A1BB28A142EA0020CAF8 /* CustomMyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400EA28A10445008A7B25 /* CustomMyPostsTableViewCell.swift */; };
+		9822A1BC28A142F00020CAF8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F62847D2F500F95F9D /* SignUpViewController.swift */; };
+		9822A1BD28A142F20020CAF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
+		9822A1BE28A142F40020CAF8 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* ReportViewController.swift */; };
+		9822A1BF28A142F60020CAF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
+		9822A1C028A142F90020CAF8 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9FE5F28882FC60087D1AD /* PostsViewController.swift */; };
+		9822A1C128A142FB0020CAF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400E628A00CFC008A7B25 /* HomeViewController.swift */; };
+		9822A1C228A142FD0020CAF8 /* MyPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400E828A0FFB0008A7B25 /* MyPostsViewController.swift */; };
+		9822A1C328A142FF0020CAF8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856617528897A550071E431 /* Post.swift */; };
+		9822A1C428A143010020CAF8 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A428A10A690020CAF8 /* MyPost.swift */; };
+		9822A1C528A143040020CAF8 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A628A12D2E0020CAF8 /* Coordinates.swift */; };
 		9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E22847D28900F95F9D /* AppDelegate.swift */; };
 		9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E42847D28900F95F9D /* SceneDelegate.swift */; };
 		9829B9E72847D28900F95F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
@@ -29,13 +46,29 @@
 		98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF9901287C83F300A98DCD /* LocationManager.swift */; };
 		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
 		98F1991E2881886D00E89BD4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1991D2881886D00E89BD4 /* Location.swift */; };
+		F26BAFC20F1EAF0BC78AA53F /* Pods_PotholeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B908A8C88ABF13BF13731636 /* Pods_PotholeManagerTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9822A1B028A132460020CAF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9829B9D72847D28900F95F9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9829B9DE2847D28900F95F9D;
+			remoteInfo = PotholeManager;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotholeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.debug.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.debug.xcconfig"; sourceTree = "<group>"; };
+		26432E960E28229701314CC7 /* Pods-PotholeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-PotholeManagerTests/Pods-PotholeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E92E12B8A10B21CB6987184 /* Pods-PotholeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-PotholeManagerTests/Pods-PotholeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		980147C3287F1CF40077A63A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9822A1A428A10A690020CAF8 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
+		9822A1A628A12D2E0020CAF8 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		9822A1AC28A132460020CAF8 /* PotholeManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotholeManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9822A1AE28A132460020CAF8 /* PotholeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeManagerTests.swift; sourceTree = "<group>"; };
 		9829B9DF2847D28900F95F9D /* PotholeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotholeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9829B9E22847D28900F95F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9829B9E42847D28900F95F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,10 +90,19 @@
 		98AF9901287C83F300A98DCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98F1991D2881886D00E89BD4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B908A8C88ABF13BF13731636 /* Pods_PotholeManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotholeManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotholeManager.release.xcconfig"; path = "Target Support Files/Pods-PotholeManager/Pods-PotholeManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9822A1A928A132460020CAF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26BAFC20F1EAF0BC78AA53F /* Pods_PotholeManagerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9829B9DC2847D28900F95F9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,14 +118,24 @@
 			isa = PBXGroup;
 			children = (
 				0648EB252C9A26A8CB1C8F75 /* Pods_PotholeManager.framework */,
+				B908A8C88ABF13BF13731636 /* Pods_PotholeManagerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9822A1AD28A132460020CAF8 /* PotholeManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9822A1AE28A132460020CAF8 /* PotholeManagerTests.swift */,
+			);
+			path = PotholeManagerTests;
 			sourceTree = "<group>";
 		};
 		9829B9D62847D28900F95F9D = {
 			isa = PBXGroup;
 			children = (
 				9829B9E12847D28900F95F9D /* PotholeManager */,
+				9822A1AD28A132460020CAF8 /* PotholeManagerTests */,
 				9829B9E02847D28900F95F9D /* Products */,
 				BC2959BB993FB0C04F9298DF /* Pods */,
 				88B151B8A776648EEB5EDCF3 /* Frameworks */,
@@ -94,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				9829B9DF2847D28900F95F9D /* PotholeManager.app */,
+				9822A1AC28A132460020CAF8 /* PotholeManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +208,7 @@
 				98F1991D2881886D00E89BD4 /* Location.swift */,
 				9856617528897A550071E431 /* Post.swift */,
 				9822A1A428A10A690020CAF8 /* MyPost.swift */,
+				9822A1A628A12D2E0020CAF8 /* Coordinates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +218,8 @@
 			children = (
 				0ADDFB942B731DAB2077717A /* Pods-PotholeManager.debug.xcconfig */,
 				BA4062994C17538135291A68 /* Pods-PotholeManager.release.xcconfig */,
+				26432E960E28229701314CC7 /* Pods-PotholeManagerTests.debug.xcconfig */,
+				5E92E12B8A10B21CB6987184 /* Pods-PotholeManagerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -171,6 +227,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9822A1AB28A132460020CAF8 /* PotholeManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9822A1B228A132460020CAF8 /* Build configuration list for PBXNativeTarget "PotholeManagerTests" */;
+			buildPhases = (
+				C38147B36BF50E2A6A233AC4 /* [CP] Check Pods Manifest.lock */,
+				9822A1A828A132460020CAF8 /* Sources */,
+				9822A1A928A132460020CAF8 /* Frameworks */,
+				9822A1AA28A132460020CAF8 /* Resources */,
+				2DAAC95DE8E373979B77C227 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9822A1B128A132460020CAF8 /* PBXTargetDependency */,
+			);
+			name = PotholeManagerTests;
+			productName = PotholeManagerTests;
+			productReference = 9822A1AC28A132460020CAF8 /* PotholeManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9829B9DE2847D28900F95F9D /* PotholeManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9829B9F32847D28C00F95F9D /* Build configuration list for PBXNativeTarget "PotholeManager" */;
@@ -200,6 +276,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					9822A1AB28A132460020CAF8 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 9829B9DE2847D28900F95F9D;
+					};
 					9829B9DE2847D28900F95F9D = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -219,11 +299,19 @@
 			projectRoot = "";
 			targets = (
 				9829B9DE2847D28900F95F9D /* PotholeManager */,
+				9822A1AB28A132460020CAF8 /* PotholeManagerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9822A1AA28A132460020CAF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9829B9DD2847D28900F95F9D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +326,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2DAAC95DE8E373979B77C227 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PotholeManagerTests/Pods-PotholeManagerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PotholeManagerTests/Pods-PotholeManagerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PotholeManagerTests/Pods-PotholeManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		60F0D49BF929DBD4AC2A6A5A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,9 +382,54 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C38147B36BF50E2A6A233AC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PotholeManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9822A1A828A132460020CAF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9822A1BF28A142F60020CAF8 /* ViewController.swift in Sources */,
+				9822A1BB28A142EA0020CAF8 /* CustomMyPostsTableViewCell.swift in Sources */,
+				9822A1BC28A142F00020CAF8 /* SignUpViewController.swift in Sources */,
+				9822A1C428A143010020CAF8 /* MyPost.swift in Sources */,
+				9822A1C228A142FD0020CAF8 /* MyPostsViewController.swift in Sources */,
+				9822A1AF28A132460020CAF8 /* PotholeManagerTests.swift in Sources */,
+				9822A1C328A142FF0020CAF8 /* Post.swift in Sources */,
+				9822A1C528A143040020CAF8 /* Coordinates.swift in Sources */,
+				9822A1BA28A142E80020CAF8 /* CustomPostTableViewCell.swift in Sources */,
+				9822A1C028A142F90020CAF8 /* PostsViewController.swift in Sources */,
+				9822A1BD28A142F20020CAF8 /* LoginViewController.swift in Sources */,
+				9822A1BE28A142F40020CAF8 /* ReportViewController.swift in Sources */,
+				9822A1B828A142AB0020CAF8 /* Location.swift in Sources */,
+				9822A1B728A13D960020CAF8 /* MapViewController.swift in Sources */,
+				9822A1B928A142C60020CAF8 /* Constants.swift in Sources */,
+				9822A1C128A142FB0020CAF8 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9829B9DB2847D28900F95F9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,12 +449,21 @@
 				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
 				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,
+				9822A1A728A12D2E0020CAF8 /* Coordinates.swift in Sources */,
 				9829B9FB2847D32400F95F9D /* ReportViewController.swift in Sources */,
 				988400E928A0FFB1008A7B25 /* MyPostsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9822A1B128A132460020CAF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9829B9DE2847D28900F95F9D /* PotholeManager */;
+			targetProxy = 9822A1B028A132460020CAF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9829B9E82847D28900F95F9D /* Main.storyboard */ = {
@@ -326,6 +485,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9822A1B328A132460020CAF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26432E960E28229701314CC7 /* Pods-PotholeManagerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956F25Q2Q3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.am.PotholeManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PotholeManager.app/PotholeManager";
+			};
+			name = Debug;
+		};
+		9822A1B428A132460020CAF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E92E12B8A10B21CB6987184 /* Pods-PotholeManagerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956F25Q2Q3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.am.PotholeManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PotholeManager.app/PotholeManager";
+			};
+			name = Release;
+		};
 		9829B9F12847D28C00F95F9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,6 +698,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9822A1B228A132460020CAF8 /* Build configuration list for PBXNativeTarget "PotholeManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9822A1B328A132460020CAF8 /* Debug */,
+				9822A1B428A132460020CAF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9829B9DA2847D28900F95F9D /* Build configuration list for PBXProject "PotholeManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

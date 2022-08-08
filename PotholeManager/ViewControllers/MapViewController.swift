@@ -67,24 +67,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     
+    // Check severity.
+    func checkSeverity(count: Int) -> String {
+        
+        if count < 3 {
+            return("Moderate")
+        }
+        else if count >= 3 && count <= 10 {
+            return("Bad")
+        }
+        else {
+            return("Extreme")
+        }
+        
+    }
+    
+    
     // Function to plot the pins on the map.
     func drawLocationOnMap(location: Location, count: Int) {
         print("drawing point: \(location.streetName)")
         
         let pin = MKPointAnnotation()
         
-        // Set severity of pothole based on how many times it has been reported.
-        var severity = ""
-        
-        if count < 3 {
-            severity = "Moderate"
-        }
-        else if count >= 3 && count <= 10 {
-            severity = "Bad"
-        }
-        else {
-            severity = "Extreme"
-        }
+        let severity = checkSeverity(count: count)
         
         pin.title = location.streetName
         pin.subtitle = severity
