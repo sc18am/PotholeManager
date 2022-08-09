@@ -18,7 +18,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         mapView.delegate = self
-
+        
+        
         getData(completion: loadedLocations)
         
         let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
@@ -41,7 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadedLocations(locations: [Location]) {
 
         for location in locations {
-            //print(location)
+            print("Loaded Location: \(location)")
             
             let count = checkDuplicates(locations: locations, streetName: location.streetName)
             drawLocationOnMap(location: location, count: count)
@@ -127,19 +128,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                  latitude: doc["latitude"] as? Double ?? 0.0,
                                  streetName: doc["street"] as? String ?? "")
                         
-                        //print(temp)
                         locationList.append(temp)
-                        
-                    } // end for
-                } // end snapshot
+                    }
+                }
                 
-                //print("finished loop!!!!")
                 completion(locationList)
                 
             }
             else {
-                // Handle error.
-                //print("error!!!!")
+
                 completion(locationList)
             }
         }

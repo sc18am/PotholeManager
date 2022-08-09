@@ -6,12 +6,110 @@
 //
 
 import XCTest
+import FirebaseAuth
+import FirebaseFirestore
+import Firebase
+
 
 class PotholeManagerTests: XCTestCase {
     
     let mapVC = MapViewController()
-   
+    let signUpVC = SignUpViewController()
+    let signUp = SignUpManager()
     
+    
+    func testPasswordNotValid() {
+        
+        let result = signUpVC.isPasswordValid("password")
+        XCTAssertFalse(result)
+
+    }
+    
+    func test() {
+        
+        
+        
+        // Creating user
+        Auth.auth().createUser(withEmail: "email@gmail.com", password: "password123!") { (result, err) in
+            
+            // Check if errors
+            if err != nil {
+                // Error present
+                let test = "error"
+                XCTAssertEqual(test, "true")
+            }
+            else {
+                
+                // If no errors then create user and add to database.
+                let db = Firestore.firestore()
+                
+                // Add a new user to the database.
+                db.collection("users").addDocument(data: ["firstname":"name", "lastname":"name", "uid":result!.user.uid]) { (error) in
+                    
+                    if error != nil {
+                        let test = "error"
+                        XCTAssertEqual(test, "true")
+                    }
+                }
+                let test = "true"
+                XCTAssertEqual(test, "error")
+            }
+        }
+        
+        
+    }
+    
+    
+    func testPasswordValid() {
+        
+        let result = signUpVC.isPasswordValid("Password1234!@")
+        XCTAssertTrue(result)
+
+    }
+    
+    func testSignUpFieldsSuccess() {
+        
+        let signUpFields = SignUpFields(firstName: "test",
+                                        lastName: "tester",
+                                        email: "testemail",
+                                        password: "password123!")
+        
+        let result = signUpVC.validateFields(signUpFields: signUpFields)
+        XCTAssertEqual(result, nil)
+    }
+    
+    
+    func testSignUpFieldsFailEmpty() {
+        
+        let signUpFields = SignUpFields(firstName: "",
+                                        lastName: "test",
+                                        email: "test",
+                                        password: "test")
+        
+        let result = signUpVC.validateFields(signUpFields: signUpFields)
+        XCTAssertEqual(result, "Please fill in all fields")
+    }
+    
+    func testSignUpFieldsFailPassword() {
+        
+        let signUpFields = SignUpFields(firstName: "test",
+                                        lastName: "test",
+                                        email: "test",
+                                        password: "test")
+        
+        let result = signUpVC.validateFields(signUpFields: signUpFields)
+        XCTAssertEqual(result, "Password must have 8 characters, at least one special character and number.")
+    }
+/*
+    func testSignUp() {
+        
+        signUp.signUpUser(email: "", password: "", firstName: "Guess", lastName: "Who") { result in
+            
+            XCTAssertTrue(result)
+        }
+        
+    }
+  */
     
     func testCheckModerateSeverity() {
     
@@ -99,4 +197,21 @@ class PotholeManagerTests: XCTestCase {
         let result = mapVC.checkDuplicates(locations: locations, streetName: "test")
         XCTAssertEqual(result, 1)
     }
+
+    
+    
+ /*   func testAddReport() {
+        
+        let reportVC = ReportViewController()
+        
+        let report = ReportDetails(street: "Alikis Vougiouklaki 10", city: "Limassol", residentialDistrict: "Ayia Fyla", postcode: "3117", width: "30", depth: "2", enterDetails: "No Comment", uid: "asdas4444232rf", email: "testeee@gmail.com", address: "10 Alikis Vougiouklaki")
+                         
+        reportVC.addReportToDatabase(globalPath: "2e2fdag3dd", report: report, getLocationTapped: false) { result, postid in
+            
+            print("The result is \(result)")
+            XCTAssertFalse(result)
+        }
+  
+    }
+*/
 }

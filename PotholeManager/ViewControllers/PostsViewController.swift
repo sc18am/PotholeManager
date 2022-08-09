@@ -383,12 +383,6 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
         
         let uid = getUserId()
         
-        //likePost(with: postid, with: uid) {
-        //    self.getLikeTotal(with: postid) { likes in
-                // Set like button with likes
-        //        self.table.reloadData()
-        //    }
-        //}
         checkLiked(with: postid, completion: { liked in
             
             if liked {

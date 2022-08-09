@@ -193,9 +193,42 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
         // Delete the document selected.
         db.collection("reports").document(postid).delete()
         
-        //print(postsList.firstIndex(where: {$0.id == postid}))
+        // Delete the same documents corresponding locations entry.
+        getDocumentId(with: postid) { docid in
+            db.collection("locations").document(docid).delete()
+        }
         
         completion()
+    }
+    
+    
+    // Gets the report documents id.
+    func getDocumentId(with postid: String, completion: @escaping (String) -> ()) {
+        
+        let db = Firestore.firestore()
+        
+        // Read the documents at posts path.
+        db.collection("locations").whereField("reportid", isEqualTo: postid).getDocuments { snapshot, error in
+            
+            // Check for error
+            if error == nil {
+                
+                if let snapshot = snapshot {
+                    for doc in snapshot.documents {
+                        
+                        completion(doc.documentID)
+                    }
+                }
+                
+            }
+            else {
+                // Handle error.
+                print("ERROR")
+                completion("")
+            }
+        
+        }
+
     }
     
 }

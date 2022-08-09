@@ -65,29 +65,46 @@ class SignUpViewController: UIViewController {
     
     func transitionToHome(){
         
-        let  homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? ReportViewController
+        let  homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
     
     
+    func getFormDetails() -> SignUpFields {
+        
+        let signUpFields = SignUpFields(firstName: firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                        lastName: lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                        email: emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                        password: passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+        
+        return signUpFields
+        
+    }
+    
     // Check fields and make sure data is correct. If correct nil returned, else return error string.
-    func validateFields() -> String? {
+    func validateFields(signUpFields: SignUpFields) -> String? {
         
         // Check not empty
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+     /*   if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields"
         }
-        
+        */
+        if signUpFields.firstName == "" ||
+            signUpFields.lastName == "" ||
+            signUpFields.email == "" ||
+            signUpFields.password == "" {
+            return "Please fill in all fields"
+        }
         
         // Check the password is secure.
-        let passwordTest = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+       // let passwordTest = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if isPasswordValid(passwordTest) == false {
+        if isPasswordValid(signUpFields.password) == false {
             return "Password must have 8 characters, at least one special character and number."
         }
         
@@ -100,7 +117,8 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpTapped(_ sender: Any) {
         
         // Validating fields
-        let error = validateFields()
+        let signUpFields = getFormDetails()
+        let error = validateFields(signUpFields: signUpFields)
         
         if error != nil {
             
@@ -114,7 +132,18 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            let authenticationManager = AuthenticationManager()
             
+            authenticationManager.signUpUser(email: email, password: password, firstName: firstName, lastName: lastName) { result in
+                
+                if result == true {
+                    self.transitionToHome()
+                }
+                else {
+                    self.showError("Error Creating The User")
+                }
+            }
+            /*
             // Creating user
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
@@ -141,6 +170,7 @@ class SignUpViewController: UIViewController {
                     
                 }
             }
+             */
         }
     }
     

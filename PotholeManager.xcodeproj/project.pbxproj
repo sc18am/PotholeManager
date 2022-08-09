@@ -27,6 +27,12 @@
 		9822A1C328A142FF0020CAF8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856617528897A550071E431 /* Post.swift */; };
 		9822A1C428A143010020CAF8 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A428A10A690020CAF8 /* MyPost.swift */; };
 		9822A1C528A143040020CAF8 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1A628A12D2E0020CAF8 /* Coordinates.swift */; };
+		9822A1C728A17C570020CAF8 /* ReportDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1C628A17C570020CAF8 /* ReportDetails.swift */; };
+		9822A1C828A183520020CAF8 /* ReportDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1C628A17C570020CAF8 /* ReportDetails.swift */; };
+		9822A1CD28A244DA0020CAF8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CC28A244DA0020CAF8 /* AuthenticationManager.swift */; };
+		9822A1CE28A244DA0020CAF8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CC28A244DA0020CAF8 /* AuthenticationManager.swift */; };
+		9822A1D028A254B00020CAF8 /* SignUpFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CF28A254B00020CAF8 /* SignUpFields.swift */; };
+		9822A1D128A254B00020CAF8 /* SignUpFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CF28A254B00020CAF8 /* SignUpFields.swift */; };
 		9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E22847D28900F95F9D /* AppDelegate.swift */; };
 		9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E42847D28900F95F9D /* SceneDelegate.swift */; };
 		9829B9E72847D28900F95F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
@@ -69,6 +75,9 @@
 		9822A1A628A12D2E0020CAF8 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		9822A1AC28A132460020CAF8 /* PotholeManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotholeManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9822A1AE28A132460020CAF8 /* PotholeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeManagerTests.swift; sourceTree = "<group>"; };
+		9822A1C628A17C570020CAF8 /* ReportDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetails.swift; sourceTree = "<group>"; };
+		9822A1CC28A244DA0020CAF8 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		9822A1CF28A254B00020CAF8 /* SignUpFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFields.swift; sourceTree = "<group>"; };
 		9829B9DF2847D28900F95F9D /* PotholeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotholeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9829B9E22847D28900F95F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9829B9E42847D28900F95F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				98E9300F284CF2E200D80682 /* Constants.swift */,
+				9822A1CC28A244DA0020CAF8 /* AuthenticationManager.swift */,
 				98AF9901287C83F300A98DCD /* LocationManager.swift */,
 			);
 			path = Helpers;
@@ -209,6 +219,8 @@
 				9856617528897A550071E431 /* Post.swift */,
 				9822A1A428A10A690020CAF8 /* MyPost.swift */,
 				9822A1A628A12D2E0020CAF8 /* Coordinates.swift */,
+				9822A1C628A17C570020CAF8 /* ReportDetails.swift */,
+				9822A1CF28A254B00020CAF8 /* SignUpFields.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -414,17 +426,20 @@
 				9822A1BF28A142F60020CAF8 /* ViewController.swift in Sources */,
 				9822A1BB28A142EA0020CAF8 /* CustomMyPostsTableViewCell.swift in Sources */,
 				9822A1BC28A142F00020CAF8 /* SignUpViewController.swift in Sources */,
+				9822A1D128A254B00020CAF8 /* SignUpFields.swift in Sources */,
 				9822A1C428A143010020CAF8 /* MyPost.swift in Sources */,
 				9822A1C228A142FD0020CAF8 /* MyPostsViewController.swift in Sources */,
 				9822A1AF28A132460020CAF8 /* PotholeManagerTests.swift in Sources */,
 				9822A1C328A142FF0020CAF8 /* Post.swift in Sources */,
 				9822A1C528A143040020CAF8 /* Coordinates.swift in Sources */,
 				9822A1BA28A142E80020CAF8 /* CustomPostTableViewCell.swift in Sources */,
+				9822A1C828A183520020CAF8 /* ReportDetails.swift in Sources */,
 				9822A1C028A142F90020CAF8 /* PostsViewController.swift in Sources */,
 				9822A1BD28A142F20020CAF8 /* LoginViewController.swift in Sources */,
 				9822A1BE28A142F40020CAF8 /* ReportViewController.swift in Sources */,
 				9822A1B828A142AB0020CAF8 /* Location.swift in Sources */,
 				9822A1B728A13D960020CAF8 /* MapViewController.swift in Sources */,
+				9822A1CE28A244DA0020CAF8 /* AuthenticationManager.swift in Sources */,
 				9822A1B928A142C60020CAF8 /* Constants.swift in Sources */,
 				9822A1C128A142FB0020CAF8 /* HomeViewController.swift in Sources */,
 			);
@@ -440,14 +455,17 @@
 				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
 				988400EB28A10445008A7B25 /* CustomMyPostsTableViewCell.swift in Sources */,
 				9856617628897A550071E431 /* Post.swift in Sources */,
+				9822A1D028A254B00020CAF8 /* SignUpFields.swift in Sources */,
 				988400E728A00CFC008A7B25 /* HomeViewController.swift in Sources */,
 				985661742888496A0071E431 /* CustomPostTableViewCell.swift in Sources */,
+				9822A1C728A17C570020CAF8 /* ReportDetails.swift in Sources */,
 				9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */,
 				98A9FE6028882FC60087D1AD /* PostsViewController.swift in Sources */,
 				9822A1A528A10A690020CAF8 /* MyPost.swift in Sources */,
 				980147C4287F1CF40077A63A /* MapViewController.swift in Sources */,
 				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
+				9822A1CD28A244DA0020CAF8 /* AuthenticationManager.swift in Sources */,
 				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,
 				9822A1A728A12D2E0020CAF8 /* Coordinates.swift in Sources */,
 				9829B9FB2847D32400F95F9D /* ReportViewController.swift in Sources */,

@@ -46,13 +46,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var getLocationButtonTapped = false
     
-   // struct Coordinates {
-        
-   //     var userLongitude = 0.0
-   //     var userLatitude = 0.0
-   //     var locationName = ""
-        
-    //}
     
     // Create instance of struct
     var userCoordinates = Coordinates()
@@ -80,10 +73,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // If the user fills in the location part it gets the coordinates from the information entered.
-    func setAddressCoordinates(with address: String, completion: @escaping () -> ()) {
+    func setAddressCoordinates(with address: String, completion: @escaping (Bool) -> ()) {
         
-       // let address = ["1 Infinite Loop, Cupertino, CA 95014", "1 Infinite Loop, Cupertino, CA", "10 Alikis Vougiouklaki, Limassol, 3117", "Mesogeiou 5A, Limassol, Ayia Fyla, Cyprus"]
-        //print(address)
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { placemarks, error in
@@ -91,6 +82,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             //let placemark = placemarks?.first
             //print("placemark = \(placemark)")
             guard let place = placemarks?.first, error == nil else {
+                
+                completion(false)
                 return
             }
             
@@ -111,26 +104,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 
             }
             //print("COORDINATES IN THE LOOP \(self.userCoordinates)")
-            completion()
+            completion(true)
         }
-    }
-    
-    
-    func getUserDetails() -> (uid: String, email: String?) {
-        
-        // Get the details of the current user logged on.
-        let user = Auth.auth().currentUser
-        if let user = user {
-          
-            let uid = user.uid
-            let email = user.email
-            
-            return (uid, email)
-            
-        }
-        
-        return ("","")
-        
     }
     
   
@@ -195,26 +170,26 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             if let adminArea = place.administrativeArea {
                 self.residentialDistrictTextField.text = "\(adminArea)"
-                print("AA: \(adminArea)")
+                //print("AA: \(adminArea)")
             }
 
             if let locality = place.locality {
                 self.cityTextField.text = "\(locality)"
-                print("L: \(locality)")
+                //print("L: \(locality)")
             }
             if let subThouroughfare = place.subThoroughfare {
                 street += "\(subThouroughfare) "
-                print("ST: \(subThouroughfare)")
+                //print("ST: \(subThouroughfare)")
             }
             if let thoroughfare = place.thoroughfare {
                 street += "\(thoroughfare)"
                 self.streetTextField.text = "\(street)"
                 self.userCoordinates.locationName = street
-                print("T: \(thoroughfare)")
+                //print("T: \(thoroughfare)")
             }
             if let postCode = place.postalCode {
                 self.postcodeTextField.text = "\(postCode)"
-                print("PC: \(postCode)")
+                //print("PC: \(postCode)")
             }
             //print(self.userCoordinates)
         }
@@ -225,15 +200,55 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
-        //addReportToDatabase(globalPath: globalPath)
-        getLocationButtonTapped = false
-        //transitionToMap()
-        transitionToPosts()
+        let report = getReportDetail()
+        
+        // Checking the fields are correct.
+        let error = validateFields()
+        
+        
+        // If there is an error show the error message.
+        if error != nil {
+            
+            errorLabel.text = error!
+            errorLabel.alpha = 1
+            
+        }
+        else {
+            addReportToDatabase(globalPath: globalPath, report: report) { result, reportid in
+                if result == true {
+                    print(result)
+                    self.transitionToMap()
+                    self.getLocationButtonTapped = false
+                } else {
+                    print("ERROR HAPPNED TRY AGAIN")
+                    self.getLocationButtonTapped = false
+                }
+            }
+        }
     }
     
     
     var globalPath = ""
     
+    
+    
+    func getReportDetail() -> ReportDetails {
+            
+            let authManager = AuthenticationManager()
+            
+            let report = ReportDetails(street: streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   city: cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   residentialDistrict: residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   postcode: postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   width: widthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   depth: depthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   enterDetails: enterDetailsTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                       uid: authManager.getUserDetails().uid,
+                                       email: authManager.getUserDetails().email!,
+                                   address: "\(streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))"
+        )
+        return report
+    }
     
     // Error message to be displayed whenever there is an error.
     func showError(_ message:String){
@@ -272,21 +287,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                 return
             }
             
-            
-            // If successfully uploaded get the download URL of the image uploaded.
-            fileRef.downloadURL { (url, error) in
-                
-                guard let url = url, error == nil else {
-                    return
-                }
-                
-                let urlString = url.absoluteString
-                
-                print("Download URL: \(urlString)")
-                UserDefaults.standard.set(url, forKey: "url") // To download the latest image - Not sure needed.
-                
-            }
-            
         }
 
     }
@@ -319,74 +319,55 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    func addReportToDatabase(globalPath: String) {
+    func addReportToDatabase(globalPath: String, report: ReportDetails, completion: @escaping (Bool, String) -> ()) {
         
-        
-        // Checking the fields are correct.
-        let error = validateFields()
-        
-        
-        // If there is an error show the error message.
-        if error != nil {
             
-            errorLabel.text = error!
-            errorLabel.alpha = 1
-            
-        }
-        else {
-            
-            // Store the report in the database. Get all the data.
-            let street = streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let city = cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let residentialDistrict = residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let postcode = postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let width = widthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let depth = depthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let enterDetails = enterDetailsTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let uid = getUserDetails().uid
-            let email = getUserDetails().email!
-           
-            let address = "\(street), \(city), \(residentialDistrict), \(postcode)"
-            
-
-            if getLocationButtonTapped == false {
-                //print("In the if with \(getLocationButtonTapped)")
-                setAddressCoordinates(with: address) {
-                    //print("Users Coordinates are: \(self.userCoordinates)")
-                    self.addLocationToDatabase(street: self.userCoordinates.locationName, latitude: self.userCoordinates.userLatitude, longitude: self.userCoordinates.userLongitude)
-                }
-            }
-            else{
-                //print("Users Coordinates are: \(userCoordinates)")
-                addLocationToDatabase(street: userCoordinates.locationName, latitude: userCoordinates.userLatitude, longitude: userCoordinates.userLongitude)
-            }
-            
-            
-            // Save a reference to the file in Firestore DB
             let db = Firestore.firestore()
 
+            let ref = db.collection("reports").document()
+            let reportid = ref.documentID
             
-            // Storing the report to the reports database.
-            db.collection("reports").addDocument(data: ["url": globalPath, "street": street, "city": city, "residentialdistrict": residentialDistrict, "postcode": postcode, "width": width, "depth": depth, "details": enterDetails, "uid": uid, "email": email]) { (error) in
-
-                if error != nil {
+            if getLocationButtonTapped == false {
+                //print("In the if with \(getLocationButtonTapped)")
+                setAddressCoordinates(with: report.address, completion: { result in
                     
-                    //Show error message.
-                    self.showError("Error uploading the report to the database.")
-                }
+                    if result == true {
+                        // Save a reference to the file in Firestore DB
+                        
+                        ref.setData(["url": globalPath, "street": report.street, "city": report.city, "residentialdistrict": report.residentialDistrict, "postcode": report.postcode, "width": report.width, "depth": report.depth, "details": report.enterDetails, "uid": report.uid, "email": report.email])
+
+                        //print("Users Coordinates are: \(self.userCoordinates)")
+                        self.addLocationToDatabase(reportid: reportid, street: self.userCoordinates.locationName, latitude: self.userCoordinates.userLatitude, longitude: self.userCoordinates.userLongitude)
+                        
+                        completion(true, reportid)
+                    }
+                    else {
+                        print("THIS IS AN ERROR")
+                        completion(false, "")
+                    }
+                })
             }
-        }
+            else {
+                //print("Users Coordinates are: \(userCoordinates)")
+                
+                ref.setData(["url": globalPath, "street": report.street, "city": report.city, "residentialdistrict": report.residentialDistrict, "postcode": report.postcode, "width": report.width, "depth": report.depth, "details": report.enterDetails, "uid": report.uid, "email": report.email])
+                
+                
+                addLocationToDatabase(reportid: reportid, street: userCoordinates.locationName, latitude: userCoordinates.userLatitude, longitude: userCoordinates.userLongitude)
+                
+                completion(true, reportid)
+            }
     }
     
     
     // Function to store the location to the database.
-    func addLocationToDatabase(street: String, latitude: Double, longitude: Double) {
+    func addLocationToDatabase(reportid: String, street: String, latitude: Double, longitude: Double) {
         
         // Save a reference to the file in Firestore DB
         let db = Firestore.firestore()
         
         // Storing the coordinates and the street name to the locations database.
-        db.collection("locations").addDocument(data: ["longitude" : longitude, "latitude": latitude, "street": street]) { (error) in
+        db.collection("locations").addDocument(data: ["reportid": reportid, "longitude" : longitude, "latitude": latitude, "street": street]) { (error) in
             
             if error != nil {
                 
@@ -397,6 +378,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
+    
     func transitionToMap() {
         
         let  mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mapViewController) as? MapViewController
@@ -405,6 +387,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.view.window?.makeKeyAndVisible()
         
     }
+    
     
     func transitionToPosts() {
         

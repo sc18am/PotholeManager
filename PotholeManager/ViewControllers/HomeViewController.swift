@@ -67,14 +67,12 @@ class HomeViewController: UIViewController {
     // Gets the current users first name.
     func getUserName(completion: @escaping (String) -> ()) {
         
-        // Get the details of the current user logged on.
-        var uid = ""
-        let user = Auth.auth().currentUser
-        if let user = user {
-          
-            uid = user.uid
+        let authManager = AuthenticationManager()
         
-        }
+        // Get the details of the current user logged on.
+        let uid = authManager.getUserDetails().uid
+        
+
         print("THE USER ID IS: \(uid)")
         // Get reference to database.
         let db = Firestore.firestore()
