@@ -58,8 +58,19 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
         swipeBack.direction = .right
         self.view.addGestureRecognizer(swipeBack)
+        
+        //Looks for single or multiple taps.
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                 action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
     }
     
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     // Swipe back function
     @objc func swipedBack() {

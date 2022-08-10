@@ -15,7 +15,8 @@ class PotholeManagerTests: XCTestCase {
     
     let mapVC = MapViewController()
     let signUpVC = SignUpViewController()
-    let signUp = SignUpManager()
+    let reportVC = ReportViewController()
+    let authManager = AuthenticationManager()
     
     
     func testPasswordNotValid() {
@@ -198,9 +199,27 @@ class PotholeManagerTests: XCTestCase {
         XCTAssertEqual(result, 1)
     }
 
+    /*
+    func testCheckSetAddressCoordinates() {
+        
+        let address = "Alikis Vougiouklaki 10"
+        
+        reportVC.setAddressCoordinates(with: address) { result in
+            XCTAssertEqual(result, true)
+        }
+    }
     
     
- /*   func testAddReport() {
+    func testCheckSetCoordinatesFail() {
+        
+        let address = "Alikis Vougiouklaki"
+        
+        reportVC.setAddressCoordinates(with: address) { result in
+            XCTAssertEqual(result, true)
+        }
+    }
+ 
+    func testAddReport() {
         
         let reportVC = ReportViewController()
         
