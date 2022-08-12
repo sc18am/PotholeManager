@@ -255,6 +255,393 @@ class PotholeManagerUITests: XCTestCase {
             
     }
     
+    func testSearchReport() throws {
+
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.textFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(5)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let reportsButton = app.buttons["Reports"]
+        XCTAssertTrue(reportsButton.exists)
+        reportsButton.tap()
+        
+        
+        sleep(5)
+        
+        let enterAreaTextField = app.textFields["Enter Area"]
+        XCTAssertTrue(enterAreaTextField.exists)
+        enterAreaTextField.tap()
+        enterAreaTextField.typeText("Ayia Fyla")
+        
+        let searchButton = app.buttons["Search"]
+        XCTAssertTrue(searchButton.exists)
+        searchButton.tap()
+        
+        sleep(5)
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Alikis Vougiouklaki 10"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Limassol"]
+        XCTAssertTrue(cityLabelCell.exists)
+        cityLabelCell.tap()
+        
+        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Ayia Fyla"]
+        XCTAssertTrue(districtLabelCell.exists)
+        districtLabelCell.tap()
+        
+        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3117"]
+        XCTAssertTrue(postCodeLabelCell.exists)
+        postCodeLabelCell.tap()
+        
+    }
+    
+    func testViewMap() {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.textFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(5)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let viewMapButton = app.buttons["View Map"]
+        XCTAssertTrue(viewMapButton.exists)
+        viewMapButton.tap()
+        
+        sleep(5)
+        
+        let map = app.maps.containing(.other, identifier:"Cyprus").element
+        XCTAssertTrue(map.exists)
+        map.tap()
+    
+    }
     
     
+    func testViewMyReports() {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.textFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(5)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let myReportsButton = app.buttons["My Reports"]
+        XCTAssertTrue(myReportsButton.exists)
+        myReportsButton.tap()
+        
+        let title = app.staticTexts["My Posts"]
+        XCTAssertTrue(title.exists)
+        title.tap()
+        
+        sleep(5)
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
+        XCTAssertTrue(cityLabelCell.exists)
+        cityLabelCell.tap()
+        
+        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
+        XCTAssertTrue(districtLabelCell.exists)
+        districtLabelCell.tap()
+        
+        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
+        XCTAssertTrue(postCodeLabelCell.exists)
+        postCodeLabelCell.tap()
+        
+        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
+        XCTAssertTrue(widthLabelCell.exists)
+        widthLabelCell.tap()
+        
+        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
+        XCTAssertTrue(depthLabelCell.exists)
+        depthLabelCell.tap()
+    
+        
+        let unlikeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Unlike"].staticTexts["Unlike"]
+        XCTAssertTrue(unlikeButton.exists)
+        unlikeButton.tap()
+        
+        sleep(5)
+        
+        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["1"]
+        XCTAssertTrue(likeLabel.exists)
+        likeLabel.tap()
+        
+    }
+    
+    func testReportUnlike() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.textFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(5)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let reportsButton = app.buttons["Reports"]
+        XCTAssertTrue(reportsButton.exists)
+        reportsButton.tap()
+        
+        
+        sleep(5)
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
+        XCTAssertTrue(cityLabelCell.exists)
+        cityLabelCell.tap()
+        
+        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
+        XCTAssertTrue(districtLabelCell.exists)
+        districtLabelCell.tap()
+        
+        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
+        XCTAssertTrue(postCodeLabelCell.exists)
+        postCodeLabelCell.tap()
+        
+        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
+        XCTAssertTrue(widthLabelCell.exists)
+        widthLabelCell.tap()
+        
+        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
+        XCTAssertTrue(depthLabelCell.exists)
+        depthLabelCell.tap()
+    
+        
+        let unlikeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Unlike"].staticTexts["Unlike"]
+        XCTAssertTrue(unlikeButton.exists)
+        unlikeButton.tap()
+        
+        sleep(5)
+        
+        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["1"]
+        XCTAssertTrue(likeLabel.exists)
+        likeLabel.tap()
+    
+    }
+    
+    func testReportLike() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.textFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(5)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let reportsButton = app.buttons["Reports"]
+        XCTAssertTrue(reportsButton.exists)
+        reportsButton.tap()
+        
+        
+        sleep(5)
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
+        XCTAssertTrue(cityLabelCell.exists)
+        cityLabelCell.tap()
+        
+        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
+        XCTAssertTrue(districtLabelCell.exists)
+        districtLabelCell.tap()
+        
+        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
+        XCTAssertTrue(postCodeLabelCell.exists)
+        postCodeLabelCell.tap()
+        
+        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
+        XCTAssertTrue(widthLabelCell.exists)
+        widthLabelCell.tap()
+        
+        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
+        XCTAssertTrue(depthLabelCell.exists)
+        depthLabelCell.tap()
+    
+        
+        let likeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Like"].staticTexts["Like"]
+        XCTAssertTrue(likeButton.exists)
+        likeButton.tap()
+        
+        sleep(5)
+        
+        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["2"]
+        XCTAssertTrue(likeLabel.exists)
+        likeLabel.tap()
+    
+    }
 }
