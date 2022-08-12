@@ -17,6 +17,8 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
    
     var postsList = [MyPost]()
     
+    let errorHandler = ErrorHandlers()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -137,6 +139,7 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
             else {
                 
                 // Handle error.
+                self.errorHandler.showAlert()
                 completion()
             }
             
@@ -223,7 +226,7 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             else {
                 // Handle error.
-                print("ERROR")
+                self.errorHandler.showAlert()
                 completion("")
             }
         

@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    let errorHandler = ErrorHandlers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +54,9 @@ class LoginViewController: UIViewController {
             
             if error != nil {
                 // Error loggin user in.
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
+                self.errorHandler.showError(message: error!.localizedDescription, errorLabel: self.errorLabel)
+                //self.errorLabel.text = error!.localizedDescription
+                //self.errorLabel.alpha = 1
             }
             else {
                 

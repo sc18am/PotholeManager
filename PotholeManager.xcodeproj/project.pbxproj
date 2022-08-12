@@ -43,6 +43,7 @@
 		9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F62847D2F500F95F9D /* SignUpViewController.swift */; };
 		9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9829B9FB2847D32400F95F9D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* ReportViewController.swift */; };
+		9845E00128A637CD004037BC /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9845E00028A637CD004037BC /* ErrorHandlers.swift */; };
 		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
 		985661742888496A0071E431 /* CustomPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985661732888496A0071E431 /* CustomPostTableViewCell.swift */; };
 		9856617628897A550071E431 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856617528897A550071E431 /* Post.swift */; };
@@ -70,7 +71,6 @@
 		9894D17728A3BCDE00493EAF /* ReportDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1C628A17C570020CAF8 /* ReportDetails.swift */; };
 		9894D17828A3BCE100493EAF /* SignUpFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CF28A254B00020CAF8 /* SignUpFields.swift */; };
 		98A9FE6028882FC60087D1AD /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9FE5F28882FC60087D1AD /* PostsViewController.swift */; };
-		98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF9901287C83F300A98DCD /* LocationManager.swift */; };
 		98E93010284CF2E200D80682 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9300F284CF2E200D80682 /* Constants.swift */; };
 		98F1991E2881886D00E89BD4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1991D2881886D00E89BD4 /* Location.swift */; };
 		F26BAFC20F1EAF0BC78AA53F /* Pods_PotholeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B908A8C88ABF13BF13731636 /* Pods_PotholeManagerTests.framework */; };
@@ -118,6 +118,7 @@
 		9829B9F62847D2F500F95F9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9829B9F82847D31500F95F9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9829B9FA2847D32400F95F9D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		9845E00028A637CD004037BC /* ErrorHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlers.swift; sourceTree = "<group>"; };
 		9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		985661732888496A0071E431 /* CustomPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPostTableViewCell.swift; sourceTree = "<group>"; };
 		9856617528897A550071E431 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		9894D15E28A3BCA300493EAF /* PotholeManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeManagerUITests.swift; sourceTree = "<group>"; };
 		9894D16028A3BCA300493EAF /* PotholeManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		98A9FE5F28882FC60087D1AD /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
-		98AF9901287C83F300A98DCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98E9300F284CF2E200D80682 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98F1991D2881886D00E89BD4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B908A8C88ABF13BF13731636 /* Pods_PotholeManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotholeManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,7 +261,7 @@
 			children = (
 				98E9300F284CF2E200D80682 /* Constants.swift */,
 				9822A1CC28A244DA0020CAF8 /* AuthenticationManager.swift */,
-				98AF9901287C83F300A98DCD /* LocationManager.swift */,
+				9845E00028A637CD004037BC /* ErrorHandlers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -590,12 +590,12 @@
 				98A9FE6028882FC60087D1AD /* PostsViewController.swift in Sources */,
 				9822A1A528A10A690020CAF8 /* MyPost.swift in Sources */,
 				980147C4287F1CF40077A63A /* MapViewController.swift in Sources */,
-				98AF9902287C83F300A98DCD /* LocationManager.swift in Sources */,
 				98E93010284CF2E200D80682 /* Constants.swift in Sources */,
 				9822A1CD28A244DA0020CAF8 /* AuthenticationManager.swift in Sources */,
 				9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */,
 				9822A1A728A12D2E0020CAF8 /* Coordinates.swift in Sources */,
 				9829B9FB2847D32400F95F9D /* ReportViewController.swift in Sources */,
+				9845E00128A637CD004037BC /* ErrorHandlers.swift in Sources */,
 				988400E928A0FFB1008A7B25 /* MyPostsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

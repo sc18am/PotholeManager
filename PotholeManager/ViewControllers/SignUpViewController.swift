@@ -30,13 +30,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    
+    let errorHandler = ErrorHandlers()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+                
         setUpElements()
     }
     
@@ -55,12 +56,12 @@ class SignUpViewController: UIViewController {
     
     
     // Error message to be displayed whenever there is an error.
-    func showError(_ message:String){
+   // func showError(_ message:String){
         
-        errorLabel.text = message
-        errorLabel.alpha = 1
+    //    errorLabel.text = message
+    //    errorLabel.alpha = 1
         
-    }
+    //}
     
     
     func transitionToHome(){
@@ -123,7 +124,8 @@ class SignUpViewController: UIViewController {
         if error != nil {
             
             // Show error message if error.
-            showError(error!)
+            errorHandler.showError(message: error!, errorLabel: errorLabel)
+            //showError(error!)
         }
         else {
             
@@ -140,7 +142,7 @@ class SignUpViewController: UIViewController {
                     self.transitionToHome()
                 }
                 else {
-                    self.showError("Error Creating The User")
+                    self.errorHandler.showAlert()
                 }
             }
             /*

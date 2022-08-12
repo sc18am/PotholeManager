@@ -14,6 +14,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    let errorHandler = ErrorHandlers()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,7 +138,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
             }
             else {
-
+                self.errorHandler.showAlert()
                 completion(locationList)
             }
         }

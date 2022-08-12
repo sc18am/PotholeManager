@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    let errorHandler = ErrorHandlers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,7 @@ class HomeViewController: UIViewController {
             }
             else {
                 // Handle error.
-                print("ERROR")
+                self.errorHandler.showAlert()
                 completion("")
             }
             

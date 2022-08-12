@@ -19,13 +19,14 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var postsList = [Post]()
     
+    let errorHandler = ErrorHandlers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //getData(completion: returnedPosts)
         getData {
-            print("success")
+            //print("success")
             self.table.reloadData()
         }
         
@@ -192,7 +193,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                         return post
                     }
                     
-                    print("Array size: \(self.postsList.count)")
+                    //print("Array size: \(self.postsList.count)")
                     completion()
                 }
                 
@@ -201,6 +202,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
             else {
                 
                 // Handle error.
+                self.errorHandler.showAlert()
                 completion()
             }
             
@@ -237,12 +239,12 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         furtherDetails: doc["details"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
                         
-                        print("Post: \(post.id)")
+                        //print("Post: \(post.id)")
                         
                         return post
                     }
                     
-                    print("Array size: \(self.postsList.count)")
+                    //print("Array size: \(self.postsList.count)")
                     completion()
                 }
                 
@@ -251,6 +253,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
             else {
                 
                 // Handle error.
+                self.errorHandler.showAlert()
                 completion()
             }
             
@@ -314,7 +317,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
             else {
-                print("error")
+                self.errorHandler.showAlert()
                 completion(0)
             }
         }
@@ -348,7 +351,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
             else {
-                print("error")
+                self.errorHandler.showAlert()
                 completion(false)
             }
         }
@@ -386,7 +389,7 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
         checkLiked(with: postid, completion: { liked in
             
             if liked {
-                print("I have it liked")
+                //print("I have it liked")
                 self.unlikePost(with: postid, with: uid) {
                     self.getLikeTotal(with: postid) { likes in
                         self.table.reloadData()
@@ -394,7 +397,7 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
                 }
             }
             else {
-                print("I just liked this.")
+                //print("I just liked this.")
                 self.likePost(with: postid, with: uid) {
                     self.getLikeTotal(with: postid) { likes in
                         // Set like button with likes

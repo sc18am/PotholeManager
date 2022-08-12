@@ -46,6 +46,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var getLocationButtonTapped = false
     
+    let errorHandler = ErrorHandlers()
     
     // Create instance of struct
     var userCoordinates = Coordinates()
@@ -68,7 +69,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        
         view.endEditing(true)
     }
     
@@ -262,12 +263,12 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // Error message to be displayed whenever there is an error.
-    func showError(_ message:String){
+    //func showError(_ message:String){
         
-        errorLabel.text = message
-        errorLabel.alpha = 1
+    //    errorLabel.text = message
+    //    errorLabel.alpha = 1
         
-    }
+    //}
     
     
     // Called when user finishes picking a photo.
@@ -353,7 +354,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                         completion(true, reportid)
                     }
                     else {
-                        print("THIS IS AN ERROR")
+                        self.errorHandler.showAlert()
                         completion(false, "")
                     }
                 })
@@ -382,7 +383,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             if error != nil {
                 
-                self.showError("Error uploading location information.")
+                self.errorHandler.showAlert()
+                //self.showError("Error uploading location information.")
             }
         }
         print("success")
