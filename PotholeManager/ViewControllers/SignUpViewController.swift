@@ -39,6 +39,10 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
                 
         setUpElements()
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
     }
     
 
@@ -47,6 +51,14 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 0
     }
  
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let startViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.startViewController) as? StartViewController
+        
+        self.view.window?.rootViewController = startViewController
+        self.view.window?.makeKeyAndVisible()
+    }
     
     // Check to see if password format is correct.
     func isPasswordValid(_ password : String) -> Bool{
@@ -129,10 +141,10 @@ class SignUpViewController: UIViewController {
         }
         else {
             
-            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let firstName = signUpFields.firstName
+            let lastName = signUpFields.lastName
+            let email = signUpFields.email
+            let password = signUpFields.password
             
             let authenticationManager = AuthenticationManager()
             

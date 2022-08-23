@@ -21,7 +21,7 @@
 		9822A1BC28A142F00020CAF8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F62847D2F500F95F9D /* SignUpViewController.swift */; };
 		9822A1BD28A142F20020CAF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9822A1BE28A142F40020CAF8 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* ReportViewController.swift */; };
-		9822A1BF28A142F60020CAF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
+		9822A1BF28A142F60020CAF8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* StartViewController.swift */; };
 		9822A1C028A142F90020CAF8 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9FE5F28882FC60087D1AD /* PostsViewController.swift */; };
 		9822A1C128A142FB0020CAF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400E628A00CFC008A7B25 /* HomeViewController.swift */; };
 		9822A1C228A142FD0020CAF8 /* MyPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400E828A0FFB0008A7B25 /* MyPostsViewController.swift */; };
@@ -36,7 +36,7 @@
 		9822A1D128A254B00020CAF8 /* SignUpFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822A1CF28A254B00020CAF8 /* SignUpFields.swift */; };
 		9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E22847D28900F95F9D /* AppDelegate.swift */; };
 		9829B9E52847D28900F95F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E42847D28900F95F9D /* SceneDelegate.swift */; };
-		9829B9E72847D28900F95F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
+		9829B9E72847D28900F95F9D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* StartViewController.swift */; };
 		9829B9EA2847D28900F95F9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9E82847D28900F95F9D /* Main.storyboard */; };
 		9829B9EC2847D28C00F95F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9EB2847D28C00F95F9D /* Assets.xcassets */; };
 		9829B9EF2847D28C00F95F9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829B9ED2847D28C00F95F9D /* LaunchScreen.storyboard */; };
@@ -59,7 +59,7 @@
 		9894D16B28A3BCC200493EAF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F62847D2F500F95F9D /* SignUpViewController.swift */; };
 		9894D16C28A3BCC400493EAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9894D16D28A3BCC700493EAF /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* ReportViewController.swift */; };
-		9894D16E28A3BCC900493EAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* ViewController.swift */; };
+		9894D16E28A3BCC900493EAF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9E62847D28900F95F9D /* StartViewController.swift */; };
 		9894D16F28A3BCCB00493EAF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980147C3287F1CF40077A63A /* MapViewController.swift */; };
 		9894D17028A3BCCD00493EAF /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9FE5F28882FC60087D1AD /* PostsViewController.swift */; };
 		9894D17128A3BCCF00493EAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988400E628A00CFC008A7B25 /* HomeViewController.swift */; };
@@ -110,7 +110,7 @@
 		9829B9DF2847D28900F95F9D /* PotholeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotholeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9829B9E22847D28900F95F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9829B9E42847D28900F95F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9829B9E62847D28900F95F9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9829B9E62847D28900F95F9D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9829B9E92847D28900F95F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9829B9EB2847D28C00F95F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9829B9EE2847D28C00F95F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				9829B9F62847D2F500F95F9D /* SignUpViewController.swift */,
 				9829B9F82847D31500F95F9D /* LoginViewController.swift */,
 				9829B9FA2847D32400F95F9D /* ReportViewController.swift */,
-				9829B9E62847D28900F95F9D /* ViewController.swift */,
+				9829B9E62847D28900F95F9D /* StartViewController.swift */,
 				980147C3287F1CF40077A63A /* MapViewController.swift */,
 				98A9FE5F28882FC60087D1AD /* PostsViewController.swift */,
 				988400E628A00CFC008A7B25 /* HomeViewController.swift */,
@@ -550,7 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9822A1BF28A142F60020CAF8 /* ViewController.swift in Sources */,
+				9822A1BF28A142F60020CAF8 /* StartViewController.swift in Sources */,
 				9822A1BB28A142EA0020CAF8 /* CustomMyPostsTableViewCell.swift in Sources */,
 				9822A1BC28A142F00020CAF8 /* SignUpViewController.swift in Sources */,
 				9822A1D128A254B00020CAF8 /* SignUpFields.swift in Sources */,
@@ -576,7 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9829B9E72847D28900F95F9D /* ViewController.swift in Sources */,
+				9829B9E72847D28900F95F9D /* StartViewController.swift in Sources */,
 				9829B9E32847D28900F95F9D /* AppDelegate.swift in Sources */,
 				98F1991E2881886D00E89BD4 /* Location.swift in Sources */,
 				9829B9F72847D2F500F95F9D /* SignUpViewController.swift in Sources */,
@@ -607,7 +607,7 @@
 				9894D17028A3BCCD00493EAF /* PostsViewController.swift in Sources */,
 				9894D16F28A3BCCB00493EAF /* MapViewController.swift in Sources */,
 				9894D17228A3BCD100493EAF /* MyPostsViewController.swift in Sources */,
-				9894D16E28A3BCC900493EAF /* ViewController.swift in Sources */,
+				9894D16E28A3BCC900493EAF /* StartViewController.swift in Sources */,
 				9894D16928A3BCBA00493EAF /* Constants.swift in Sources */,
 				9894D16B28A3BCC200493EAF /* SignUpViewController.swift in Sources */,
 				9894D16828A3BCB700493EAF /* CustomMyPostsTableViewCell.swift in Sources */,

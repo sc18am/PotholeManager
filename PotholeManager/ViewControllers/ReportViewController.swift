@@ -85,7 +85,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // If the user fills in the location part it gets the coordinates from the information entered.
-    func setAddressCoordinates(with address: String, completion: @escaping (Bool) -> ()) {
+    func setAddressCoordinatesManual(with address: String, completion: @escaping (Bool) -> ()) {
         
         
         let geoCoder = CLGeocoder()
@@ -133,6 +133,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @IBAction func getLocationTapped(_ sender: Any) {
+        
         manager = CLLocationManager()
         manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -152,7 +153,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
         getUserCoordinates(with: location)
-        getLocationDetails(with: location)
+        setLocationDetails(with: location)
          
     }
     
@@ -168,7 +169,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // Gets the users location when getLocation button pressed and sets the fields for the user.
-    func getLocationDetails(with location: CLLocation) {
+    func setLocationDetails(with location: CLLocation) {
         
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
@@ -226,7 +227,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         }
         else {
-            addReportToDatabase(globalPath: globalPath, report: report) { result, reportid in
+            addToDatabase(globalPath: globalPath, report: report) { result, reportid in
                 if result == true {
                     print(result)
                     self.transitionToMap()
@@ -331,7 +332,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    func addReportToDatabase(globalPath: String, report: ReportDetails, completion: @escaping (Bool, String) -> ()) {
+    func addToDatabase(globalPath: String, report: ReportDetails, completion: @escaping (Bool, String) -> ()) {
         
             
             let db = Firestore.firestore()
@@ -341,7 +342,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             if getLocationButtonTapped == false {
                 //print("In the if with \(getLocationButtonTapped)")
-                setAddressCoordinates(with: report.address, completion: { result in
+                setAddressCoordinatesManual(with: report.address, completion: { result in
                     
                     if result == true {
                         // Save a reference to the file in Firestore DB

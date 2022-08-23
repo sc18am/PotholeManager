@@ -124,7 +124,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func downloadURL(for path: String, completion: @escaping (URL) -> Void) {
         
-        // Get referance to storage.
+        // Get reference to storage.
         let storage = Storage.storage().reference()
         
         // Specify path.
@@ -219,7 +219,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         
         // Read the documents at posts path.
-        db.collection("reports").whereField("residentialdistrict", isEqualTo: district).getDocuments { snapshot, error in
+        db.collection("reports").whereField("postcode", isEqualTo: district).getDocuments { snapshot, error in
             
             // Check for error
             if error == nil {

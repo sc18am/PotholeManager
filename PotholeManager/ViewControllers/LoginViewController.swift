@@ -30,6 +30,10 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setUpElements()
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
+        swipeBack.direction = .right
+        self.view.addGestureRecognizer(swipeBack)
     }
     
     func setUpElements() {
@@ -38,7 +42,14 @@ class LoginViewController: UIViewController {
     }
     
     
-    
+    // Swipe back function
+    @objc func swipedBack() {
+        
+        let startViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.startViewController) as? StartViewController
+        
+        self.view.window?.rootViewController = startViewController
+        self.view.window?.makeKeyAndVisible()
+    }
     
 
     @IBAction func loginTapped(_ sender: Any) {

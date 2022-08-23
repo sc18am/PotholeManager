@@ -130,7 +130,7 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
                         return post
                     }
                     
-                    print("Array size: \(self.postsList.count)")
+                    //print("Array size: \(self.postsList.count)")
                     completion()
                 }
                 
@@ -198,6 +198,7 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Delete the same documents corresponding locations entry.
         getDocumentId(with: postid) { docid in
+            
             db.collection("locations").document(docid).delete()
         }
         

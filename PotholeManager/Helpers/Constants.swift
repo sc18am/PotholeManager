@@ -18,7 +18,7 @@ struct Constants {
         static let postsViewController = "PostsVC"
         static let myPostsViewController = "MyPostsVC"
         static let reportViewController = "ReportVC"
-        
+        static let startViewController = "StartVC"
         
     }
     
