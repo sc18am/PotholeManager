@@ -73,8 +73,6 @@ class HomeViewController: UIViewController {
         // Get the details of the current user logged on.
         let uid = authManager.getUserDetails().uid
         
-
-        print("THE USER ID IS: \(uid)")
         // Get reference to database.
         let db = Firestore.firestore()
             

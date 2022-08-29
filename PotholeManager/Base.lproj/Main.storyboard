@@ -43,11 +43,21 @@
                                     <constraint firstItem="HbC-o6-7Ww" firstAttribute="height" secondItem="ITy-eJ-dV2" secondAttribute="height" multiplier="0.775" id="FeR-jS-I8m"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pothole Manager" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpu-1t-IC5">
+                                <rect key="frame" x="27" y="262" width="360" height="371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Vpu-1t-IC5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="1in-rR-6OQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vpu-1t-IC5" secondAttribute="trailing" constant="27" id="7Of-XF-P6r"/>
+                            <constraint firstItem="Vpu-1t-IC5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="218" id="K5K-8t-CZp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zhF-jU-7da" secondAttribute="bottom" constant="40" id="dC1-45-GrJ"/>
+                            <constraint firstItem="zhF-jU-7da" firstAttribute="top" secondItem="Vpu-1t-IC5" secondAttribute="bottom" constant="98" id="hhM-Gh-nzd"/>
                             <constraint firstItem="zhF-jU-7da" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="qVG-Nh-go8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zhF-jU-7da" secondAttribute="trailing" constant="40" id="wP8-u0-bq1"/>
                         </constraints>
@@ -60,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="104"/>
+            <point key="canvasLocation" x="995.65217391304361" y="103.79464285714285"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="jv1-VA-tGL">
@@ -91,7 +101,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-Iu-Zkv">
                                         <rect key="frame" x="0.0" y="60" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NE-Ac-fuV">
                                         <rect key="frame" x="0.0" y="120" width="334" height="40"/>
@@ -303,7 +313,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gw-hy-jJT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gw-hy-jJT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Psr-XM-bGF"/>
@@ -562,16 +572,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P5q-ff-0cr">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="71" width="414" height="761"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Haf-Xj-C2i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Haf-Xj-C2i" firstAttribute="trailing" secondItem="P5q-ff-0cr" secondAttribute="trailing" id="0f2-eK-pL2"/>
-                            <constraint firstItem="P5q-ff-0cr" firstAttribute="top" secondItem="Haf-Xj-C2i" secondAttribute="top" id="3bZ-3G-aFg"/>
+                            <constraint firstItem="P5q-ff-0cr" firstAttribute="top" secondItem="Haf-Xj-C2i" secondAttribute="top" constant="27" id="3bZ-3G-aFg"/>
                             <constraint firstItem="P5q-ff-0cr" firstAttribute="leading" secondItem="Haf-Xj-C2i" secondAttribute="leading" id="8TC-bt-8hr"/>
-                            <constraint firstItem="Haf-Xj-C2i" firstAttribute="bottom" secondItem="P5q-ff-0cr" secondAttribute="bottom" id="SFo-mx-kJk"/>
+                            <constraint firstItem="Haf-Xj-C2i" firstAttribute="bottom" secondItem="P5q-ff-0cr" secondAttribute="bottom" constant="30" id="SFo-mx-kJk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -580,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9J-Xs-jia" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4216" y="-634"/>
+            <point key="canvasLocation" x="4215.9420289855079" y="-634.15178571428567"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vXa-sG-x6x">
@@ -620,7 +630,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hOa-bj-2tn">
                                         <rect key="frame" x="0.0" y="180" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pob-c0-MQi">
                                         <rect key="frame" x="0.0" y="240" width="334" height="40"/>
@@ -736,7 +746,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oo6-Jz-mmN">
                                         <rect key="frame" x="0.0" y="282.5" width="334" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Reports"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="View Reports"/>
                                         <connections>
                                             <action selector="reportsButtonTapped:" destination="AET-yD-OBf" eventType="touchUpInside" id="AtC-4H-NfS"/>
                                         </connections>

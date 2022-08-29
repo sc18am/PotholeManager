@@ -44,6 +44,8 @@
 		9829B9F92847D31500F95F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9F82847D31500F95F9D /* LoginViewController.swift */; };
 		9829B9FB2847D32400F95F9D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829B9FA2847D32400F95F9D /* ReportViewController.swift */; };
 		9845E00128A637CD004037BC /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9845E00028A637CD004037BC /* ErrorHandlers.swift */; };
+		9845E00228B4D3FA004037BC /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9845E00028A637CD004037BC /* ErrorHandlers.swift */; };
+		9845E00328B4D3FB004037BC /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9845E00028A637CD004037BC /* ErrorHandlers.swift */; };
 		9850F8F4284A629D00CA75CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9850F8F3284A629D00CA75CB /* GoogleService-Info.plist */; };
 		985661742888496A0071E431 /* CustomPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985661732888496A0071E431 /* CustomPostTableViewCell.swift */; };
 		9856617628897A550071E431 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856617528897A550071E431 /* Post.swift */; };
@@ -559,6 +561,7 @@
 				9822A1AF28A132460020CAF8 /* PotholeManagerTests.swift in Sources */,
 				9822A1C328A142FF0020CAF8 /* Post.swift in Sources */,
 				9822A1C528A143040020CAF8 /* Coordinates.swift in Sources */,
+				9845E00228B4D3FA004037BC /* ErrorHandlers.swift in Sources */,
 				9822A1BA28A142E80020CAF8 /* CustomPostTableViewCell.swift in Sources */,
 				9822A1C828A183520020CAF8 /* ReportDetails.swift in Sources */,
 				9822A1C028A142F90020CAF8 /* PostsViewController.swift in Sources */,
@@ -623,6 +626,7 @@
 				9894D17628A3BCDB00493EAF /* Coordinates.swift in Sources */,
 				9894D17128A3BCCF00493EAF /* HomeViewController.swift in Sources */,
 				9894D17828A3BCE100493EAF /* SignUpFields.swift in Sources */,
+				9845E00328B4D3FB004037BC /* ErrorHandlers.swift in Sources */,
 				9894D15F28A3BCA300493EAF /* PotholeManagerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

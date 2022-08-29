@@ -27,14 +27,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         setUpElements()
         
         let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
         swipeBack.direction = .right
         self.view.addGestureRecognizer(swipeBack)
     }
+    
     
     func setUpElements() {
         
@@ -54,8 +53,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginTapped(_ sender: Any) {
         
-        // TODO: Check that the fields are filled in.
-        
         // Cleaning the text fields.
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -66,8 +63,6 @@ class LoginViewController: UIViewController {
             if error != nil {
                 // Error loggin user in.
                 self.errorHandler.showError(message: error!.localizedDescription, errorLabel: self.errorLabel)
-                //self.errorLabel.text = error!.localizedDescription
-                //self.errorLabel.alpha = 1
             }
             else {
                 

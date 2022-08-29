@@ -50,11 +50,11 @@ class PotholeManagerUITests: XCTestCase {
 
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         
         let signUpButton = app.buttons["Sign Up"]
@@ -96,11 +96,11 @@ class PotholeManagerUITests: XCTestCase {
         emailTextField.typeText("tester@gmail.com")
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         let loginButton = app.buttons["Login"]
         XCTAssertTrue(loginButton.exists)
@@ -141,18 +141,18 @@ class PotholeManagerUITests: XCTestCase {
         emailTextField.typeText("tester@gmail.com")
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         let loginButton = app.buttons["Login"]
         XCTAssertTrue(loginButton.exists)
         
         loginButton.tap()
         
-        sleep(5)
+        sleep(10)
         
         let homeLabel = app.staticTexts["Home"]
         XCTAssertTrue(homeLabel.exists)
@@ -249,7 +249,7 @@ class PotholeManagerUITests: XCTestCase {
         
         sleep(5)
         
-        let map = app.maps.containing(.other, identifier:"Cyprus").element
+        let map = app.maps.containing(.other, identifier:"Nicosia").element
         XCTAssertTrue(map.exists)
         map.tap()
             
@@ -274,18 +274,18 @@ class PotholeManagerUITests: XCTestCase {
         emailTextField.typeText("tester@gmail.com")
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         let loginButton = app.buttons["Login"]
         XCTAssertTrue(loginButton.exists)
         
         loginButton.tap()
         
-        sleep(5)
+        sleep(10)
         
         let homeLabel = app.staticTexts["Home"]
         XCTAssertTrue(homeLabel.exists)
@@ -297,17 +297,17 @@ class PotholeManagerUITests: XCTestCase {
         welcomeLabel.tap()
         
         
-        let reportsButton = app.buttons["Reports"]
+        let reportsButton = app.buttons["View Reports"]
         XCTAssertTrue(reportsButton.exists)
         reportsButton.tap()
         
         
         sleep(5)
         
-        let enterAreaTextField = app.textFields["Enter Area"]
+        let enterAreaTextField = app.textFields["Enter Postcode"]
         XCTAssertTrue(enterAreaTextField.exists)
         enterAreaTextField.tap()
-        enterAreaTextField.typeText("Ayia Fyla")
+        enterAreaTextField.typeText("3117")
         
         let searchButton = app.buttons["Search"]
         XCTAssertTrue(searchButton.exists)
@@ -315,18 +315,7 @@ class PotholeManagerUITests: XCTestCase {
         
         sleep(5)
         
-        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Alikis Vougiouklaki 10"]
-        XCTAssertTrue(streetLabelCell.exists)
-        streetLabelCell.tap()
-        
-        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Limassol"]
-        XCTAssertTrue(cityLabelCell.exists)
-        cityLabelCell.tap()
-        
-        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Ayia Fyla"]
-        XCTAssertTrue(districtLabelCell.exists)
-        districtLabelCell.tap()
-        
+   
         let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3117"]
         XCTAssertTrue(postCodeLabelCell.exists)
         postCodeLabelCell.tap()
@@ -351,18 +340,18 @@ class PotholeManagerUITests: XCTestCase {
         emailTextField.typeText("tester@gmail.com")
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         let loginButton = app.buttons["Login"]
         XCTAssertTrue(loginButton.exists)
         
         loginButton.tap()
         
-        sleep(5)
+        sleep(10)
         
         let homeLabel = app.staticTexts["Home"]
         XCTAssertTrue(homeLabel.exists)
@@ -378,11 +367,143 @@ class PotholeManagerUITests: XCTestCase {
         XCTAssertTrue(viewMapButton.exists)
         viewMapButton.tap()
         
-        sleep(5)
+        sleep(10)
         
-        let map = app.maps.containing(.other, identifier:"Cyprus").element
+        let map = app.maps.containing(.other, identifier:"Nicosia").element
         XCTAssertTrue(map.exists)
         map.tap()
+    
+    }
+        
+
+    func testReportLike() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("Password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(10)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let reportsButton = app.buttons["View Reports"]
+        XCTAssertTrue(reportsButton.exists)
+        reportsButton.tap()
+        
+        
+        sleep(10)
+        
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10 Alikis Vougiouklaki"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        
+        let likeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Like"].staticTexts["Like"]
+        XCTAssertTrue(likeButton.exists)
+        likeButton.tap()
+        
+        sleep(5)
+        
+        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["3"]
+        XCTAssertTrue(likeLabel.exists)
+        likeLabel.tap()
+    
+    }
+    
+    func testReportUnlike() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        let initialLoginButton = app.buttons["Login"]
+        XCTAssertTrue(initialLoginButton.exists)
+        
+        initialLoginButton.tap()
+        
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText("tester@gmail.com")
+        
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("Password123!")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssertTrue(loginButton.exists)
+        
+        loginButton.tap()
+        
+        sleep(10)
+        
+        let homeLabel = app.staticTexts["Home"]
+        XCTAssertTrue(homeLabel.exists)
+        homeLabel.tap()
+ 
+        
+        let welcomeLabel = app.staticTexts["Welcome test"]
+        XCTAssertTrue(welcomeLabel.exists)
+        welcomeLabel.tap()
+        
+        
+        let reportsButton = app.buttons["View Reports"]
+        XCTAssertTrue(reportsButton.exists)
+        reportsButton.tap()
+        
+        
+        sleep(10)
+        
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10 Alikis Vougiouklaki"]
+        XCTAssertTrue(streetLabelCell.exists)
+        streetLabelCell.tap()
+        
+        
+        let unlikeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Unlike"].staticTexts["Unlike"]
+        XCTAssertTrue(unlikeButton.exists)
+        unlikeButton.tap()
+        
+        sleep(10)
+        
+        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["2"]
+        XCTAssertTrue(likeLabel.exists)
+        likeLabel.tap()
     
     }
     
@@ -405,18 +526,18 @@ class PotholeManagerUITests: XCTestCase {
         emailTextField.typeText("tester@gmail.com")
         
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         XCTAssertTrue(passwordTextField.exists)
         
         passwordTextField.tap()
-        passwordTextField.typeText("password123!")
+        passwordTextField.typeText("Password123!")
         
         let loginButton = app.buttons["Login"]
         XCTAssertTrue(loginButton.exists)
         
         loginButton.tap()
         
-        sleep(5)
+        sleep(10)
         
         let homeLabel = app.staticTexts["Home"]
         XCTAssertTrue(homeLabel.exists)
@@ -432,216 +553,25 @@ class PotholeManagerUITests: XCTestCase {
         XCTAssertTrue(myReportsButton.exists)
         myReportsButton.tap()
         
-        let title = app.staticTexts["My Posts"]
+        let title = app.staticTexts["My Reports"]
         XCTAssertTrue(title.exists)
         title.tap()
         
-        sleep(5)
+        sleep(10)
         
-        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
+        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Alikis Vougiouklaki 10"]
         XCTAssertTrue(streetLabelCell.exists)
         streetLabelCell.tap()
         
-        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
+        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["Limassol"]
         XCTAssertTrue(cityLabelCell.exists)
         cityLabelCell.tap()
         
-        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
-        XCTAssertTrue(districtLabelCell.exists)
-        districtLabelCell.tap()
-        
-        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
-        XCTAssertTrue(postCodeLabelCell.exists)
-        postCodeLabelCell.tap()
-        
-        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
-        XCTAssertTrue(widthLabelCell.exists)
-        widthLabelCell.tap()
-        
-        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
-        XCTAssertTrue(depthLabelCell.exists)
-        depthLabelCell.tap()
     
-        
-        let unlikeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Unlike"].staticTexts["Unlike"]
-        XCTAssertTrue(unlikeButton.exists)
-        unlikeButton.tap()
-        
-        sleep(5)
-        
-        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["1"]
-        XCTAssertTrue(likeLabel.exists)
-        likeLabel.tap()
+        let deleteButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Delete"].staticTexts["Delete"]
+        XCTAssertTrue(deleteButton.exists)
+        deleteButton.tap()
         
     }
-    
-    func testReportUnlike() throws {
 
-        let app = XCUIApplication()
-        app.launch()
-        
-        let initialLoginButton = app.buttons["Login"]
-        XCTAssertTrue(initialLoginButton.exists)
-        
-        initialLoginButton.tap()
-        
-        
-        let emailTextField = app.textFields["Email"]
-        XCTAssertTrue(emailTextField.exists)
-        
-        emailTextField.tap()
-        emailTextField.typeText("tester@gmail.com")
-        
-        
-        let passwordTextField = app.textFields["Password"]
-        XCTAssertTrue(passwordTextField.exists)
-        
-        passwordTextField.tap()
-        passwordTextField.typeText("password123!")
-        
-        let loginButton = app.buttons["Login"]
-        XCTAssertTrue(loginButton.exists)
-        
-        loginButton.tap()
-        
-        sleep(5)
-        
-        let homeLabel = app.staticTexts["Home"]
-        XCTAssertTrue(homeLabel.exists)
-        homeLabel.tap()
- 
-        
-        let welcomeLabel = app.staticTexts["Welcome test"]
-        XCTAssertTrue(welcomeLabel.exists)
-        welcomeLabel.tap()
-        
-        
-        let reportsButton = app.buttons["Reports"]
-        XCTAssertTrue(reportsButton.exists)
-        reportsButton.tap()
-        
-        
-        sleep(5)
-        
-        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
-        XCTAssertTrue(streetLabelCell.exists)
-        streetLabelCell.tap()
-        
-        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
-        XCTAssertTrue(cityLabelCell.exists)
-        cityLabelCell.tap()
-        
-        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
-        XCTAssertTrue(districtLabelCell.exists)
-        districtLabelCell.tap()
-        
-        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
-        XCTAssertTrue(postCodeLabelCell.exists)
-        postCodeLabelCell.tap()
-        
-        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
-        XCTAssertTrue(widthLabelCell.exists)
-        widthLabelCell.tap()
-        
-        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
-        XCTAssertTrue(depthLabelCell.exists)
-        depthLabelCell.tap()
-    
-        
-        let unlikeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Unlike"].staticTexts["Unlike"]
-        XCTAssertTrue(unlikeButton.exists)
-        unlikeButton.tap()
-        
-        sleep(5)
-        
-        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["1"]
-        XCTAssertTrue(likeLabel.exists)
-        likeLabel.tap()
-    
-    }
-    
-    func testReportLike() throws {
-
-        let app = XCUIApplication()
-        app.launch()
-        
-        let initialLoginButton = app.buttons["Login"]
-        XCTAssertTrue(initialLoginButton.exists)
-        
-        initialLoginButton.tap()
-        
-        
-        let emailTextField = app.textFields["Email"]
-        XCTAssertTrue(emailTextField.exists)
-        
-        emailTextField.tap()
-        emailTextField.typeText("tester@gmail.com")
-        
-        
-        let passwordTextField = app.textFields["Password"]
-        XCTAssertTrue(passwordTextField.exists)
-        
-        passwordTextField.tap()
-        passwordTextField.typeText("password123!")
-        
-        let loginButton = app.buttons["Login"]
-        XCTAssertTrue(loginButton.exists)
-        
-        loginButton.tap()
-        
-        sleep(5)
-        
-        let homeLabel = app.staticTexts["Home"]
-        XCTAssertTrue(homeLabel.exists)
-        homeLabel.tap()
- 
-        
-        let welcomeLabel = app.staticTexts["Welcome test"]
-        XCTAssertTrue(welcomeLabel.exists)
-        welcomeLabel.tap()
-        
-        
-        let reportsButton = app.buttons["Reports"]
-        XCTAssertTrue(reportsButton.exists)
-        reportsButton.tap()
-        
-        
-        sleep(5)
-        
-        let streetLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["W 47th St"]
-        XCTAssertTrue(streetLabelCell.exists)
-        streetLabelCell.tap()
-        
-        let cityLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["New York"]
-        XCTAssertTrue(cityLabelCell.exists)
-        cityLabelCell.tap()
-        
-        let districtLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["NY"]
-        XCTAssertTrue(districtLabelCell.exists)
-        districtLabelCell.tap()
-        
-        let postCodeLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["10036"]
-        XCTAssertTrue(postCodeLabelCell.exists)
-        postCodeLabelCell.tap()
-        
-        let widthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["33"]
-        XCTAssertTrue(widthLabelCell.exists)
-        widthLabelCell.tap()
-        
-        let depthLabelCell = app.tables.cells.element(boundBy: 0).staticTexts["3"]
-        XCTAssertTrue(depthLabelCell.exists)
-        depthLabelCell.tap()
-    
-        
-        let likeButton = app.tables.children(matching: .cell).element(boundBy: 0).buttons["Like"].staticTexts["Like"]
-        XCTAssertTrue(likeButton.exists)
-        likeButton.tap()
-        
-        sleep(5)
-        
-        let likeLabel = app.tables.cells.element(boundBy: 0).staticTexts["2"]
-        XCTAssertTrue(likeLabel.exists)
-        likeLabel.tap()
-    
-    }
 }

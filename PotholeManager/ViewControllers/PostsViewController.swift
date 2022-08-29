@@ -24,9 +24,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //getData(completion: returnedPosts)
         getData {
-            //print("success")
             self.table.reloadData()
         }
         
@@ -61,8 +59,6 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postsList.count
     }
@@ -78,17 +74,13 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Custom delegate.
         cell.configure(with: postId)
         cell.delegate = self
-        //cell.delegate?.likeButtonTapped()
-        
-        //print("POST URL IS: \(post.imageURL)")
+
+        // Download and display the image in the cell.
         downloadURL(for: post.imageURL) { url in
-            //print("THIS IS THE URL \(url)")
             self.downloadImage(imageView: cell.postImageView, url: url)
-              
         }
         
-        //print("I AM HERE")
-        
+        // Display additional cell labels.
         cell.streetLabel.text = post.street
         cell.cityLabel.text = post.city
         cell.residentialDistrictLabel.text = post.residentialDistrict
@@ -96,13 +88,12 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.widthLabel.text = post.width
         cell.depthLabel.text = post.depth
         cell.detailsLabel.text = post.furtherDetails    
-        //cell.likeLabel.text = "CALL THE FUNCTION FOR LIKES"
-        //print("END")
-        
+
         getLikeTotal(with: postId) { likes in
             cell.likeLabel.text = String(likes)
         }
         
+        // Checks if user has the report liked.
         checkLiked(with: postId) { liked in
             
             if liked {
@@ -188,16 +179,10 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         furtherDetails: doc["details"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
                         
-                       // print("Post: \(post)")
-                        
                         return post
                     }
-                    
-                    //print("Array size: \(self.postsList.count)")
                     completion()
                 }
-                
-                
             }
             else {
                 
@@ -205,9 +190,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.errorHandler.showAlert()
                 completion()
             }
-            
         }
-        
     }
     
     
@@ -238,17 +221,12 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         depth: doc["depth"] as? String ?? "0",
                                         furtherDetails: doc["details"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
-                        
-                        //print("Post: \(post.id)")
-                        
+
                         return post
                     }
-                    
-                    //print("Array size: \(self.postsList.count)")
+
                     completion()
                 }
-                
-                
             }
             else {
                 
@@ -256,7 +234,6 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.errorHandler.showAlert()
                 completion()
             }
-            
         }
     }
     
@@ -312,7 +289,6 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
                 else {
                     let likes = elements.count
-                    print("Elemets \(elements), likes \(likes)")
                     completion(likes)
                 }
             }
@@ -324,7 +300,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    
+    // Checks if user has the post liked returns true if yes and no if they dont.
     func checkLiked(with postid: String, completion: @escaping (Bool) -> ()) {
         
         let uid = getUserId()
@@ -342,11 +318,9 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 // Check if the likes are empty.
                 if elements.contains(uid) {
-                    //print("POST LIKED")
                     completion(true)
                 }
                 else {
-                    //print("NOT LIKED")
                     completion(false)
                 }
             }
@@ -355,8 +329,6 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 completion(false)
             }
         }
-        
-        
     }
     
     
@@ -389,7 +361,6 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
         checkLiked(with: postid, completion: { liked in
             
             if liked {
-                //print("I have it liked")
                 self.unlikePost(with: postid, with: uid) {
                     self.getLikeTotal(with: postid) { likes in
                         self.table.reloadData()
@@ -397,7 +368,6 @@ extension PostsViewController: CustomPostTableViewCellDelegate {
                 }
             }
             else {
-                //print("I just liked this.")
                 self.likePost(with: postid, with: uid) {
                     self.getLikeTotal(with: postid) { likes in
                         // Set like button with likes

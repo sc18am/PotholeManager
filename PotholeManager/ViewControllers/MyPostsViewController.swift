@@ -124,17 +124,11 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
                                         street: doc["street"] as? String ?? "",
                                         city: doc["city"] as? String ?? "",
                                         imageURL: doc["url"] as? String ?? "")
-                        
-                        //print("Post: \(post.id)")
-                        
+
                         return post
                     }
-                    
-                    //print("Array size: \(self.postsList.count)")
                     completion()
                 }
-                
-                
             }
             else {
                 
@@ -142,7 +136,6 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.errorHandler.showAlert()
                 completion()
             }
-            
         }
     }
     
@@ -223,16 +216,13 @@ class MyPostsViewController: UIViewController, UITableViewDataSource, UITableVie
                         completion(doc.documentID)
                     }
                 }
-                
             }
             else {
                 // Handle error.
                 self.errorHandler.showAlert()
                 completion("")
             }
-        
         }
-
     }
     
 }

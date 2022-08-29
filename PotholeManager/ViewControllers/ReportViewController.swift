@@ -46,6 +46,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var getLocationButtonTapped = false
     
+    var globalPath = ""
+    
     let errorHandler = ErrorHandlers()
     
     // Create instance of struct
@@ -73,6 +75,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         view.endEditing(true)
     }
     
+    
     // Swipe back function
     @objc func swipedBack() {
         
@@ -80,44 +83,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
-    }
-    
-    
-    
-    // If the user fills in the location part it gets the coordinates from the information entered.
-    func setAddressCoordinatesManual(with address: String, completion: @escaping (Bool) -> ()) {
-        
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { placemarks, error in
-            
-            //let placemark = placemarks?.first
-            //print("placemark = \(placemark)")
-            guard let place = placemarks?.first, error == nil else {
-                
-                completion(false)
-                return
-            }
-            
-            var street = ""
-            
-            if let lat = place.location?.coordinate.latitude {
-                self.userCoordinates.userLatitude = lat
-            }
-            if let lon = place.location?.coordinate.longitude {
-                self.userCoordinates.userLongitude = lon
-            }
-            if let subThouroughfare = place.subThoroughfare {
-                street += "\(subThouroughfare) "
-            }
-            if let thoroughfare = place.thoroughfare {
-                street += "\(thoroughfare)"
-                self.userCoordinates.locationName = street
-
-            }
-            //print("COORDINATES IN THE LOOP \(self.userCoordinates)")
-            completion(true)
-        }
     }
     
   
@@ -145,72 +110,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    // locationManager delegate function.
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        guard let location = locations.first else {
-            return
-        }
-        
-        getUserCoordinates(with: location)
-        setLocationDetails(with: location)
-         
-    }
-    
-    
-    // Get users coordinates
-    func getUserCoordinates(with location: CLLocation) {
-        
-        userCoordinates.userLongitude = location.coordinate.longitude
-        userCoordinates.userLatitude = location.coordinate.latitude
-        //print(userCoordinates)
-        
-    }
-    
-    
-    // Gets the users location when getLocation button pressed and sets the fields for the user.
-    func setLocationDetails(with location: CLLocation) {
-        
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
-            
-            guard let place = placemarks?.first, error == nil else {
-                return
-
-            }
-            
-            var street = ""
-            
-            if let adminArea = place.administrativeArea {
-                self.residentialDistrictTextField.text = "\(adminArea)"
-                //print("AA: \(adminArea)")
-            }
-
-            if let locality = place.locality {
-                self.cityTextField.text = "\(locality)"
-                //print("L: \(locality)")
-            }
-            if let subThouroughfare = place.subThoroughfare {
-                street += "\(subThouroughfare) "
-                //print("ST: \(subThouroughfare)")
-            }
-            if let thoroughfare = place.thoroughfare {
-                street += "\(thoroughfare)"
-                self.streetTextField.text = "\(street)"
-                self.userCoordinates.locationName = street
-                //print("T: \(thoroughfare)")
-            }
-            if let postCode = place.postalCode {
-                self.postcodeTextField.text = "\(postCode)"
-                //print("PC: \(postCode)")
-            }
-            //print(self.userCoordinates)
-        }
-    }
-    
-    
-    
-    
     @IBAction func submitReportButtonTapped(_ sender: Any) {
         
         let report = getReportDetail()
@@ -229,47 +128,14 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         else {
             addToDatabase(globalPath: globalPath, report: report) { result, reportid in
                 if result == true {
-                    print(result)
                     self.transitionToMap()
                     self.getLocationButtonTapped = false
                 } else {
-                    print("ERROR HAPPNED TRY AGAIN")
                     self.getLocationButtonTapped = false
                 }
             }
         }
     }
-    
-    
-    var globalPath = ""
-    
-    
-    
-    func getReportDetail() -> ReportDetails {
-            
-            let authManager = AuthenticationManager()
-            
-            let report = ReportDetails(street: streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   city: cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   residentialDistrict: residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   postcode: postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   width: widthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   depth: depthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                   enterDetails: enterDetailsTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                       uid: authManager.getUserDetails().uid,
-                                       email: authManager.getUserDetails().email!,
-                                   address: "\(streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))"
-        )
-        return report
-    }
-    
-    // Error message to be displayed whenever there is an error.
-    //func showError(_ message:String){
-        
-    //    errorLabel.text = message
-    //    errorLabel.alpha = 1
-        
-    //}
     
     
     // Called when user finishes picking a photo.
@@ -296,7 +162,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         fileRef.putData(imageData, metadata: nil) { (_, error) in
             
             guard error == nil else {
-                print("Failed to upload")
                 return
             }
             
@@ -311,8 +176,116 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
         
     }
-
     
+    
+    // locationManager delegate function.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let location = locations.first else {
+            return
+        }
+        
+        getUserCoordinates(with: location)
+        setLocationDetails(with: location)
+         
+    }
+    
+    
+    // Get users coordinates
+    func getUserCoordinates(with location: CLLocation) {
+        
+        userCoordinates.userLongitude = location.coordinate.longitude
+        userCoordinates.userLatitude = location.coordinate.latitude
+        
+    }
+    
+    // If the user fills in the location part it gets the coordinates from the information entered.
+    func setAddressCoordinatesManual(with address: String, completion: @escaping (Bool) -> ()) {
+        
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { placemarks, error in
+            
+            guard let place = placemarks?.first, error == nil else {
+                
+                completion(false)
+                return
+            }
+            
+            var street = ""
+            
+            if let lat = place.location?.coordinate.latitude {
+                self.userCoordinates.userLatitude = lat
+            }
+            if let lon = place.location?.coordinate.longitude {
+                self.userCoordinates.userLongitude = lon
+            }
+            if let subThouroughfare = place.subThoroughfare {
+                street += "\(subThouroughfare) "
+            }
+            if let thoroughfare = place.thoroughfare {
+                street += "\(thoroughfare)"
+                self.userCoordinates.locationName = street
+
+            }
+            completion(true)
+        }
+    }
+    
+    
+    
+    // Gets the users location when getLocation button pressed and sets the fields for the user.
+    func setLocationDetails(with location: CLLocation) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
+            
+            guard let place = placemarks?.first, error == nil else {
+                return
+
+            }
+            
+            var street = ""
+            
+            if let adminArea = place.administrativeArea {
+                self.residentialDistrictTextField.text = "\(adminArea)"
+            }
+
+            if let locality = place.locality {
+                self.cityTextField.text = "\(locality)"
+            }
+            if let subThouroughfare = place.subThoroughfare {
+                street += "\(subThouroughfare) "
+            }
+            if let thoroughfare = place.thoroughfare {
+                street += "\(thoroughfare)"
+                self.streetTextField.text = "\(street)"
+                self.userCoordinates.locationName = street
+            }
+            if let postCode = place.postalCode {
+                self.postcodeTextField.text = "\(postCode)"
+            }
+        }
+    }
+    
+    
+    func getReportDetail() -> ReportDetails {
+            
+            let authManager = AuthenticationManager()
+            
+            let report = ReportDetails(street: streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   city: cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   residentialDistrict: residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   postcode: postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   width: widthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   depth: depthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                   enterDetails: enterDetailsTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                                       uid: authManager.getUserDetails().uid,
+                                       email: authManager.getUserDetails().email!,
+                                   address: "\(streetTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(cityTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(residentialDistrictTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)), \(postcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))"
+        )
+        return report
+    }
     
     
     // Check fields and validate that data is correct. If correct then return nil else return error message.
@@ -341,15 +314,13 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             let reportid = ref.documentID
             
             if getLocationButtonTapped == false {
-                //print("In the if with \(getLocationButtonTapped)")
+          
                 setAddressCoordinatesManual(with: report.address, completion: { result in
                     
                     if result == true {
                         // Save a reference to the file in Firestore DB
-                        
                         ref.setData(["url": globalPath, "street": report.street, "city": report.city, "residentialdistrict": report.residentialDistrict, "postcode": report.postcode, "width": report.width, "depth": report.depth, "details": report.enterDetails, "uid": report.uid, "email": report.email])
 
-                        //print("Users Coordinates are: \(self.userCoordinates)")
                         self.addLocationToDatabase(reportid: reportid, street: self.userCoordinates.locationName, latitude: self.userCoordinates.userLatitude, longitude: self.userCoordinates.userLongitude)
                         
                         completion(true, reportid)
@@ -361,10 +332,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                 })
             }
             else {
-                //print("Users Coordinates are: \(userCoordinates)")
-                
                 ref.setData(["url": globalPath, "street": report.street, "city": report.city, "residentialdistrict": report.residentialDistrict, "postcode": report.postcode, "width": report.width, "depth": report.depth, "details": report.enterDetails, "uid": report.uid, "email": report.email])
-                
                 
                 addLocationToDatabase(reportid: reportid, street: userCoordinates.locationName, latitude: userCoordinates.userLatitude, longitude: userCoordinates.userLongitude)
                 
@@ -385,10 +353,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             if error != nil {
                 
                 self.errorHandler.showAlert()
-                //self.showError("Error uploading location information.")
             }
         }
-        print("success")
     }
     
     

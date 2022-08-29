@@ -21,7 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
-        
         getData(completion: loadedLocations)
         
         let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(swipedBack))
@@ -44,7 +43,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadedLocations(locations: [Location]) {
 
         for location in locations {
-            print("Loaded Location: \(location)")
             
             let count = checkDuplicates(locations: locations, streetName: location.streetName)
             drawLocationOnMap(location: location, count: count)
@@ -88,7 +86,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // Function to plot the pins on the map.
     func drawLocationOnMap(location: Location, count: Int) {
-        print("drawing point: \(location.streetName)")
         
         let pin = MKPointAnnotation()
         
@@ -101,7 +98,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         
         mapView.addAnnotation(pin)
-        //print("POINT ADDED")
     }
     
     
@@ -119,8 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             // Check for errors
             if error == nil {
-                // No errors
-                
+  
                 // Make sure snapshot is not empty.
                 if let snapshot = snapshot, !snapshot.isEmpty {
                     // Get all the documents and create Location instances.

@@ -6,18 +6,12 @@
 //
 
 import XCTest
-import FirebaseAuth
-import FirebaseFirestore
-import Firebase
-
 
 class PotholeManagerTests: XCTestCase {
     
     let mapVC = MapViewController()
     let signUpVC = SignUpViewController()
-    let reportVC = ReportViewController()
-    let authManager = AuthenticationManager()
-    
+  
     
     func testPasswordNotValid() {
         
@@ -96,6 +90,14 @@ class PotholeManagerTests: XCTestCase {
     }
     
     
+    func testCheckExtremeSeverity() {
+        
+        let result = mapVC.checkSeverity(count: 20)
+        XCTAssertEqual(result, "Extreme")
+        
+    }
+    
+    
     func testCheckExtremeSeverityBounds() {
         
         let result = mapVC.checkSeverity(count: 11)
@@ -103,13 +105,6 @@ class PotholeManagerTests: XCTestCase {
         
     }
     
-    
-    func testCheckExtremeSeverity() {
-        
-        let result = mapVC.checkSeverity(count: 20)
-        XCTAssertEqual(result, "Extreme")
-        
-    }
     
     func testCheckTwoDuplicates() {
         
